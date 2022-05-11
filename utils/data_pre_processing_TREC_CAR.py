@@ -7,7 +7,7 @@ import sys
 import logging
 import time
 sys.path.append("../../.")
-from trec_car_tools.python3.trec_car.read_data import *
+from trec_car_tools.python3.trec_car.read_data import iter_pages, iter_paragraphs
 
 logging.basicConfig(level=logging.INFO)
 
@@ -46,7 +46,7 @@ def clean_text(text):
 
 def construct_corpus(path_file: str):
     """
-    :param path_file: path_file: path to the *.cboor file to process
+    :param path_file: path_file: path to the *.cboor file to prociter_paragraphsess
     :param tokenizer: tokenizer: tokenizer that, when used as tokenizer.tokenize(text) -> output a list of sentences.
     :return: df : DataFrame with the column :
         - text : *text from the corpus*
@@ -81,7 +81,7 @@ def construct_article(path_file: str, tokenizer):
     df = []
     with open(path_file, 'rb') as file:
         for page in iter_pages(file):
-            if page.child_sections != []:
+            if page.child_sections:
                 data_page = dict()
                 first_section = page.child_sections[0].get_text_with_headings(False)
 
@@ -119,10 +119,10 @@ def construct_article(path_file: str, tokenizer):
 
                     # process text with all passage and heading
                     # in addition, get the entire page (but the intro)
-                    entier_page = ""
+                    entire_page = ""
                     for section in page.outline():
                         data_page["text_w_heading_all_passage"] += str(section)
-                        entier_page += str(section)
+                        entire_page += str(section)
                     # process text with all passage and no heading
                     data_page["text_w/o_heading_all_passage"] += page.get_text()
                     # process text with first sentence by paragraph and no heading
@@ -143,11 +143,11 @@ def construct_article(path_file: str, tokenizer):
                         heading = headings[i]
                         if i < len(headings) - 1:
                             heading_next = headings[i + 1]
-                            page_split = entier_page.split(heading)
+                            page_split = entire_page.split(heading)
                             relevant_split = page_split[1]
                             section = relevant_split.split(heading_next)[0]
                         else:
-                            section = entier_page.split(heading)[-1]
+                            section = entire_page.split(heading)[-1]
                         # get first sentence of section and of each paragraph
                         section_first_sentence_by_paragraph = ""
                         if re.search(r"\w", section):
@@ -217,7 +217,7 @@ def construct_section(path_file: str, tokenizer):
                         data_section["text_w/o_heading_all_passage"] = section.get_text()
                         # get all headings
                         headings = re.findall(r"=+(?:\w|\s|\d)+=+", data_section["text_w_heading_all_passage"])
-                        # get entier section
+                        # get entire section
                         entire_section = str(section)
                         if not headings:
                             heading = ""
@@ -231,7 +231,7 @@ def construct_section(path_file: str, tokenizer):
                             if re.search(r"\w+", section.get_text()):
                                 subsection_first_sentence = tokenizer.tokenize(section.get_text())[0]
                                 for paragraph in section.get_text().split("\n"):
-                                    if not re.match("\w+", paragraph):
+                                    if not re.match(r"\w+", paragraph):
                                         continue
                                     subsection_first_sentence_by_paragraph += str(
                                         "\n" + tokenizer.tokenize(paragraph)[0])
@@ -259,7 +259,7 @@ def construct_section(path_file: str, tokenizer):
                             if re.search(r"\w+", subsection):
                                 subsection_first_sentence = tokenizer.tokenize(subsection)[0]
                                 for paragraph in subsection.split("\n"):
-                                    if not re.match("\w+", paragraph):
+                                    if not re.match(r"\w+", paragraph):
                                         continue
                                     subsection_first_sentence_by_paragraph += str(
                                         "\n" + tokenizer.tokenize(paragraph)[0])
@@ -293,7 +293,9 @@ def main(path_file: str,
 
     logging.info("Parse path_file for 'data type_train_test' (and 'fold' if train data).")
     type_train_test = re.findall(r"train|test", path_file)[0]
+    logging.info(f"file type : {type_train_test}.")
     paragraphs_only = True if re.findall("paragraphs", path_file) else False
+    logging.info(f"file is {'a corpus' if paragraphs_only else 'entire pages'}.")
 
     if type_train_test == "train":
         fold = int(re.findall(r"fold-\d", path_file)[0].replace("fold-", ''))
@@ -311,7 +313,7 @@ def main(path_file: str,
             except FileExistsError:
                 pass
 
-    if paragraphs_only:  # the file is juste a corpus
+    if paragraphs_only:  # the file is just a corpus
         logging.info("construct corpus dataset")
         df_corpus = construct_corpus(path_file)
         logging.info("clean text features.")
@@ -345,11 +347,11 @@ def main(path_file: str,
 
 if __name__ == "__main__":
     # train
-    for i in range(1, 5):
-        main(path_file=f"../../Data/benchmarkY1/benchmarkY1-train/fold-{i}-train.pages.cbor",
-             path_output_folder="../../data_pre_processed")
-        main(path_file=f"../../Data/benchmarkY1/benchmarkY1-train/fold-{i}-train.pages.cbor-paragraphs.cbor",
-             path_output_folder="../../data_pre_processed")
+    # for i in range(1, 5):
+    #     main(path_file=f"../../Data/benchmarkY1/benchmarkY1-train/fold-{i}-train.pages.cbor",
+    #          path_output_folder="../../data_pre_processed")
+    #     main(path_file=f"../../Data/benchmarkY1/benchmarkY1-train/fold-{i}-train.pages.cbor-paragraphs.cbor",
+    #          path_output_folder="../../data_pre_processed")
     # test
     main(path_file=f"../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor",
          path_output_folder="../../data_pre_processed")
