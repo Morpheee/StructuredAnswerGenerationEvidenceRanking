@@ -381,8 +381,8 @@ class T5Planning(planningSeqToSeq):
                             labels={'outline_labels': outline_lm_labels, 'full_answer_labels': lm_labels})
         loss = output['sum_loss']
 
-        self.log('train/loss_step', loss.item(), on_step=True)
-        self.log('train/loss_epoch', loss.item(), on_step=False, on_epoch=True)
+        # self.log('train/loss_step', loss.item(), on_step=True)
+        # self.log('train/loss_epoch', loss.item(), on_step=False, on_epoch=True)
 
         return loss
 
@@ -416,8 +416,8 @@ class T5Planning(planningSeqToSeq):
                                 validation=True)
             loss = output['sum_loss']
 
-            self.log('Val/loss_step', loss.item(), on_step=True)
-            self.log('Val/loss_epoch', loss.item(), on_step=False, on_epoch=True)
+            # self.log('Val/loss_step', loss.item(), on_step=True)
+            # self.log('Val/loss_epoch', loss.item(), on_step=False, on_epoch=True)
 
     def validation_epoch_end(self, outputs):
         print('Validation epoch ', self.current_epoch)
