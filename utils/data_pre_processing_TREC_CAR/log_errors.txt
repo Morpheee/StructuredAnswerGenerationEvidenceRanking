@@ -1,0 +1,214 @@
+Wed Jun 15 08:45:21 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:23 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:24 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:41 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:48 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:45:57 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:48:11 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:48:19 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:49:02 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:49:22 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun 15 08:50:24 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------

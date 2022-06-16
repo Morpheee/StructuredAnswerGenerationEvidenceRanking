@@ -5,9 +5,9 @@ import operator
 import numpy as np
 import psutil
 from tqdm import tqdm
-from sys import getsizeof
 import sys
 import os
+import click
 from transformers import T5Tokenizer
 from icecream import ic
 import time
@@ -34,6 +34,7 @@ from pytorch_lightning import loggers as pl_loggers
 sys.path.append("../utils")
 from data_utils import train_val_test_split_df
 from file_utils import mkdir
+from metrics import MRR, ACCURACY, RECALL, MAP
 
 # %%
 
@@ -47,26 +48,34 @@ os.environ["TOKENIZERS_PARALLELISM"] = "True"
 
 # %%
 
-def get_datasets(path_to_file, path_to_corpus, text_column, nb_irrelevant):
-    corpus = CorpusDataset(path_to_file=path_to_corpus, text_column=text_column)
-    if path_to_file.endswith(".json"):
-        df = pd.read_json(path_to_file)
-    elif path_to_file.endswith(".csv"):
-        df = pd.read_csv(path_to_file)
-    df_train, df_val, df_test = train_val_test_split_df(df)
-    del df
+def get_datasets(
+        train_ds,
+        train_corpus,
+        val_ds,
+        val_corpus,
+        test_ds,
+        test_corpus,
+        text_column,
+        nb_irrelevant
+):
+    df_train = pd.read_json(train_ds)
+    corpus_train = CorpusDataset(path_to_file=train_corpus, text_column=text_column)
+    df_val = pd.read_json(val_ds).sample(int(len(df_train) * .1))
+    corpus_val = CorpusDataset(path_to_file=val_corpus, text_column=text_column)
+    df_test = pd.read_json(test_ds)
+    corpus_test = CorpusDataset(path_to_file=test_corpus, text_column=text_column)
 
     ds_train = QueryDataset(df=df_train,
                             text_column=text_column,
-                            corpus=corpus,
+                            corpus=corpus_train,
                             nb_irrelevant=nb_irrelevant)
     ds_val = QueryDataset(df=df_val,
                           text_column=text_column,
-                          corpus=corpus,
+                          corpus=corpus_val,
                           nb_irrelevant=nb_irrelevant)
     ds_test = QueryDataset(df=df_test,
                            text_column=text_column,
-                           corpus=corpus,
+                           corpus=corpus_test,
                            nb_irrelevant=nb_irrelevant,
                            test=True)
 
@@ -87,8 +96,10 @@ class CorpusDataset(pd.DataFrame):
             df = pd.read_csv(path)
         if "all" in text_column:
             df.rename(columns={"all_passage": "text"}, inplace=True)
+            df.drop(columns=["first_sentence"], inplace=True)
         elif "first" in text_column:
             df.rename(columns={"first_sentence": "text"}, inplace=True)
+            df.drop(columns=["all_passage"], inplace=True)
         df = df.loc[df["text"] != "\n"]
         df["id"] = df["id"].apply(int)
         return df
@@ -217,8 +228,6 @@ class DPR(pl.LightningModule):
         self.context_model = DPRContextEncoder.from_pretrained(context_model_name)
         logging.info("\n\n")
 
-        self.freeze_params = freeze_params
-
         self.learning_rate = learning_rate
         self.batch_size = batch_size
 
@@ -233,8 +242,18 @@ class DPR(pl.LightningModule):
             self.num_workers = psutil.cpu_count()
         else:
             self.num_workers = min(num_workers, psutil.cpu_count())
-            
-        self.freeze_layers()
+
+        if freeze_params != 0:
+            self.freeze_params = freeze_params
+            self.freeze_layers()
+
+        # for test phase
+        self.path_corpus_dense_tensor = None
+        self.corpus_dense_tensor = None
+        self.metrics = {"ACCURACY": [],
+                        "MRR@10": [], "MRR@25": [],
+                        "RECALL@10": [], "RECALL@25": [], "RECALL@50": [], "RECALL@200": [],
+                        "MAP": []}
 
     # Freeze the first self.freeze_params % layers
     def freeze_layers(self):
@@ -306,8 +325,7 @@ class DPR(pl.LightningModule):
     def get_dense_query(self, query):
         query = self.encode_queries(query)
         dense_query = self.query_model(input_ids=query["input_ids"].to(self.device),
-                                       attention_mask=query["attention_mask"].to(self.device))[
-            "pooler_output"]
+                                       attention_mask=query["attention_mask"].to(self.device))["pooler_output"]
         return dense_query
 
     def get_dense_contexts(self, contexts):
@@ -403,40 +421,98 @@ class DPR(pl.LightningModule):
     def validation_epoch_end(self, outputs):
         logging.info(f'Validation epoch {str(self.current_epoch).rjust(5)} - loss : {str(self.val_loss).rjust(15)}')
 
-    def test_step(self, batch, batch_idx, k=10, dense_tensor_path="./dense_tensor.pt"):
-        if dense_tensor_path:
-            self.context_dense_tensor = torch.load(dense_tensor_path)
+    def test_step(self, batch, batch_idx):
+        if self.path_corpus_dense_tensor and not self.corpus_dense_tensor:
+            self.context_dense_tensor = torch.load(self.path_corpus_dense_tensor)
+        elif self.corpus_dense_tensor:
+            self.context_dense_tensor = self.corpus_dense_tensor
+
         self.context_model.eval()
         self.query_model.eval()
-        for data in batch:
-            query_dense = self.get_dense_query(data["query"])
-            similarity_score = self.dot_product(query_dense, self.context_dense_tensor)
-            top_k_item = similarity_score.argmax()[:k]
-            top_k_corpus = self.test_ds.iloc(top_k_item)
-            print("top_k_corpus :", top_k_corpus)
-            print('data["query"]["ids"] :', data["query"]["ids"])
-            print('acc :', sum([tkc in data["query"]["ids"] for tkc in top_k_corpus]))
-            print()
 
-            break
+        for data in batch:
+            query_dense = self.get_dense_query(data["query"]).to(torch.float64)
+            similarity_score = self.dot_product(query_dense, self.context_dense_tensor.to(query_dense.device))
+            retrieved_indexes = similarity_score.argsort(descending=True)
+            retrieved_corpus = self.test_ds.corpus.iloc[retrieved_indexes.cpu().detach().numpy()]
+            retrieved_ids = retrieved_corpus["id"].to_numpy()
+            reference_ids = data["query"]["ids"]
+            self.metrics["ACCURACY"].append(ACCURACY(retrieved_ids, reference_ids,
+                                                     k=len(reference_ids)))
+            self.metrics["MRR@10"].append(MRR(retrieved_ids, reference_ids,
+                                              k=10))
+            self.metrics["MRR@25"].append(MRR(retrieved_ids, reference_ids,
+                                              k=25))
+            self.metrics["RECALL@10"].append(RECALL(retrieved_ids, reference_ids,
+                                                    k=10))
+            self.metrics["RECALL@25"].append(RECALL(retrieved_ids, reference_ids,
+                                                    k=25))
+            self.metrics["RECALL@50"].append(RECALL(retrieved_ids, reference_ids,
+                                                    k=50))
+            self.metrics["RECALL@200"].append(RECALL(retrieved_ids, reference_ids,
+                                                     k=200))
+            self.metrics["MAP"].append(MAP(retrieved_ids, reference_ids,
+                                           k=len(reference_ids)))
+        query_text = data["query"]["text"]
+        k = len(reference_ids)
+        similarity = similarity_score[retrieved_indexes[:k]].cpu().detach().numpy()
+        retrieved = retrieved_corpus.iloc[retrieved_indexes[:k].cpu()]
+        retrieved.reset_index(drop=True, inplace=True)
+        _, correct = ACCURACY(retrieved_ids, reference_ids, k=len(reference_ids), return_list=True)
+
+        return {"query_text" : query_text,
+                "similarity" : similarity,
+                "retrieved" : retrieved,
+                "correct" : correct}
 
     def test_epoch_end(self, outputs):
-        self.test_predictions = sum([output[0] for output in outputs], [])
-        self.test_actuals = sum([output[1] for output in outputs], [])
-        self.test_outlines = sum([output[2] for output in outputs], [])
+
+        # self.test_predictions = sum([output[0] for output in outputs], [])
+        # self.test_actuals = sum([output[1] for output in outputs], [])
+        # self.test_outlines = sum([output[2] for output in outputs], [])
+        print("\n\n\n")
+        print(f"Query_sample : {outputs[-1]['query_text']}")
+        print(f"correct,".ljust(10),
+              f"similarity,".ljust(12),
+              f"id".ljust(10),
+              f"text".ljust(100))
+        for c,s,i,t in zip(outputs[-1]["correct"],
+                           outputs[-1]["similarity"],
+                           outputs[-1]["retrieved"]["id"].tolist(),
+                           outputs[-1]["retrieved"]["text"].tolist()):
+            print(f"{'True' if c else 'False'}".ljust(10),
+                  f"{s:.2f}".ljust(12),
+                  f"{str(i)[:5]}...".ljust(10),
+                  f"{t[:100]}{'...' if len(t)> 100 else ''}".ljust(100))
+        print("\n\n")
+        for k, v in self.metrics.items():
+            if len(v) > 0:
+                self.metrics[k] = sum(v) / len(v)
+        for k,v in self.metrics.items() :
+            print(f"{str(k).ljust(12)} : {v*100:.2f}")
+        print("\n\n\n\n\n")
 
     def encode_all_context_df(self,
-                              contexts: pd.DataFrame = None,
-                              load_tokens=("./input_ids_tensor.pt", "./attention_mask_tensor.pt"),
-                              step=32):
-        if contexts is None:
-            contexts = self.test_ds.corpus
+                              path_input_ids_tensor=None,
+                              path_attention_masks_tensor=None,
+                              step=32,
+                              save_every=250,
+                              nb_splits=0,
+                              index_split=0):
+        contexts = self.test_ds.corpus
 
-        if load_tokens:
-            input_ids_tensor = torch.load(load_tokens[0])
-            attention_mask_tensor = torch.load(load_tokens[1])
+        self.context_model.eval()
+        self.query_model.eval()
+
+        if path_input_ids_tensor and path_attention_masks_tensor:
+            logging.info(f"load tensor : {path_input_ids_tensor}")
+            input_ids_tensor = torch.load(path_input_ids_tensor)
+            logging.info(f"load tensor : {path_attention_masks_tensor}")
+            attention_mask_tensor = torch.load(path_attention_masks_tensor)
         else:
             # tokenization
+            logging.info("tokenization")
+
             def token_process(text):
                 contexts_encoding = self.context_tokenizer(text,
                                                            truncation=True,
@@ -454,35 +530,101 @@ class DPR(pl.LightningModule):
                 input_ids_tensor[i], attention_mask_tensor[i] = token_process(text)
                 i += 1
 
-            torch.save(input_ids_tensor, "./input_ids_tensor.pt")
-            torch.save(attention_mask_tensor, "./attention_mask_tensor.pt")
+            torch.save(input_ids_tensor, "./tensors/dpr/input_ids_tensor.pt")
+            torch.save(attention_mask_tensor, "./tensors/dpr/attention_mask_tensor.pt")
 
         # embedding
-        dense_tensor = torch.zeros(size=(len(contexts), 768), dtype=torch.int)
-        for i in tqdm(range(0, len(contexts), step),
-                      miniters=1,
-                      mininterval=60,
-                      maxinterval=600):
-            dense = self.context_model(input_ids=input_ids_tensor[i * step:(i + 1) * step],
-                                       attention_mask=attention_mask_tensor[i * step:(i + 1) * step])
-            torch.save(dense, f"./dense/dense_tensor.step-{i}.pt")
-            dense_tensor[i * step:(i + 1) * step] = dense["pooler_output"]
+        logging.info("embedding")
+        dense_tensor = torch.zeros(size=(len(contexts), 768), dtype=torch.float64)
+        end = len(contexts)
+        steps = [int((end / step) // nb_splits * step * j) for j in range(nb_splits)] + [end]
+        logging.info(f'range(steps[index_split-1], steps[index_split], step) : range({steps[index_split - 1]}, '
+                     f'{steps[index_split]}, {step})')
+        for i in tqdm(range(steps[index_split - 1], steps[index_split], step),
+                      miniters=1, mininterval=60, maxinterval=600):
+            dense = self.context_model(input_ids=input_ids_tensor[i:i + step],
+                                       attention_mask=attention_mask_tensor[i:i + step])["pooler_output"]
+            # torch.save(dense, f"./tensors/dpr/dense/dense_tensor.step-{i}_over_{len(contexts)}.pt")
+            dense_tensor[i: i + dense.size(0)] = dense
+            if (i % save_every * step) == 0:
+                torch.save(dense_tensor,
+                           f"./tensors/dpr/dense/dense_tensor.start-{steps[index_split - 1]}_end-{i + step}.pt")
 
-        torch.save(dense_tensor, "./dense_tensor.pt")
+        torch.save(dense_tensor,
+                   f"./tensors/dpr/dense_tensor.start-{steps[index_split - 1]}_end-{steps[index_split]}.pt")
         self.context_dense_tensor = dense_tensor
         return dense_tensor
 
-    def predict(self, trainer):
-        trainer.test(self)
-        return self.test_predictions, self.test_actuals, self.test_outlines
 
-
-def main(text_column="w/o_heading_first_sentence",
+@click.command()
+@click.option("--checkpoints-suffix", default="",
+              help="suffix of checkpoints save path")
+@click.option("--encode-all-nb-splits", default=0,
+              help="if >0 number of cut for encoding all documents. else, if 0 pass (validation step")
+@click.option("--encode-all-index-split", default=0,
+              help="index of the split to encode. Only used if --encode_all_nb_split > 0 (validation step)")
+@click.option("--path-input-ids-tensor", default=None,
+              help="if already computed, path to tensor containing input ids of corpus (validation step")
+@click.option("--path-attention-masks-tensor", default=None,
+              help="if already computed, path to tensor containing attention masks of corpus (validation step")
+@click.option("--load-from-checkpoint", default=None,
+              help="if already computed, path to tensor containing attention masks of corpus (validation step")
+@click.option("--text-column", default="w_heading_first_sentence",
+              help="text column to keep (w or w/o heading // first_sentence or all_passage")
+@click.option("--train-ds", default="fold-0/articles_train.json",
+              help="training dataset.")
+@click.option("--train-corpus", default="fold-0/corpus_train.json",
+              help="training corpus.")
+@click.option("--val-ds", default="fold-1/articles_train.json",
+              help="training dataset.")
+@click.option("--val-corpus", default="fold-1/corpus_train.json",
+              help="val corpus.")
+@click.option("--test-ds", default="test/articles_test.json",
+              help="test dataset.")
+@click.option("--test-corpus", default="test/corpus_test.json",
+              help="test corpus.")
+@click.option("--nb-irrelevant", default=1,
+              help="Number of irrelevant examples for training.")
+@click.option("--path-corpus-dense-tensor", default=None,
+              help="for test phase, if already computed, path to corpus' dense tensor.")
+def main(text_column,
+         checkpoints_suffix,
+         nb_irrelevant,
+         load_from_checkpoint,
+         encode_all_nb_splits,
+         encode_all_index_split,
+         path_input_ids_tensor,
+         path_attention_masks_tensor,
+         path_corpus_dense_tensor,
+         train_ds,
+         train_corpus,
+         val_ds,
+         val_corpus,
+         test_ds,
+         test_corpus,
          save_path_checkpoints="./checkpoints",
          model_name="dpr_retriever",
-         nb_irrelevant=1,
-         small=False,
-         load_from_checkpoint="./checkpoints/dpr_retriever/version_3/checkpoints/epoch=0-step=1076.ckpt"):
+         small=True):
+    logging.info(
+        "List of parameters :"
+        f"\n\ttext_column = {text_column},"
+        f"\n\tsave_path_checkpoints = {save_path_checkpoints},"
+        f"\n\tcheckpoints_suffix = {checkpoints_suffix},"
+        f"\n\tmodel_name = {model_name},"
+        f"\n\tnb_irrelevant = {nb_irrelevant},"
+        f"\n\tsmall = {small},"
+        f"\n\tload_from_checkpoint = {load_from_checkpoint},"
+        f"\n\tencode_all_nb_splits = {encode_all_nb_splits},"
+        f"\n\tencode_all_index_split = {encode_all_index_split},"
+        f"\n\tpath_input_ids_tensor = {path_input_ids_tensor},"
+        f"\n\tpath_attention_masks_tensor = {path_attention_masks_tensor}"
+        f"\n\ttrain_ds = {train_ds}"
+        f"\n\ttrain_corpus = {train_corpus}"
+        f"\n\tval_ds = {val_ds}"
+        f"\n\tval_corpus = {val_corpus}"
+        f"\n\ttest_ds = {test_ds}"
+        f"\n\ttest_corpus = {test_corpus}"
+    )
     start_time = time.time()
 
     logging.info(" " * 35 + "↪ elapsed time : "
@@ -493,9 +635,14 @@ def main(text_column="w/o_heading_first_sentence",
         path_to_file_prefix = "../../../data-subset_pre_processed/"
     else:
         path_to_file_prefix = "../../../data-set_pre_processed/"
+
     ds_train, ds_val, ds_test = get_datasets(
-        path_to_file=path_to_file_prefix + "fold-0/articles_train.json",
-        path_to_corpus=path_to_file_prefix + "fold-0/corpus_train.json",
+        train_ds=os.path.join(path_to_file_prefix, train_ds),
+        train_corpus=os.path.join(path_to_file_prefix, train_corpus),
+        val_ds=os.path.join(path_to_file_prefix, val_ds),
+        val_corpus=os.path.join(path_to_file_prefix, val_corpus),
+        test_ds=os.path.join(path_to_file_prefix, test_ds),
+        test_corpus=os.path.join(path_to_file_prefix, test_corpus),
         text_column=text_column,
         nb_irrelevant=nb_irrelevant,
     )
@@ -504,13 +651,19 @@ def main(text_column="w/o_heading_first_sentence",
                             f"{int((time.time() - start_time) // 60)}min "
                             f"{(time.time() - start_time) % 60:.2f}s.")
 
+    if checkpoints_suffix:
+        save_path_checkpoints = os.path.join(save_path_checkpoints, checkpoints_suffix)
     logging.info(f"Make logger and checkpoint's folders : '{save_path_checkpoints}'")
 
     mkdir(save_path_checkpoints, model_name)
     # mkdir(save_path_model)
 
     logger = pl_loggers.TensorBoardLogger(save_path_checkpoints, name=model_name)
-    checkpoint_callback = ModelCheckpoint(monitor="Val/loss_epoch", mode="min", save_top_k=2, every_n_epochs=1)
+    checkpoint_callback = ModelCheckpoint(monitor="Val/loss_epoch",
+                                          mode="min",
+                                          save_last=True,
+                                          save_top_k=5,
+                                          every_n_epochs=1)
 
     logging.info(" " * 35 + "↪ elapsed time : "
                             f"{int((time.time() - start_time) // 60)}min "
@@ -522,19 +675,19 @@ def main(text_column="w/o_heading_first_sentence",
                           precision=32,
                           accelerator="gpu",
                           gpus=-1,
-                          # strategy='ddp',
-                          max_epochs=5,
+                          strategy='dp',
+                          max_epochs=100,
                           callbacks=[checkpoint_callback],
                           log_every_n_steps=1,
-                          progress_bar_refresh_rate=10000)
+                          progress_bar_refresh_rate=100)
     else:
         trainer = Trainer(logger=logger,
                           precision=32,
                           accelerator="cpu",
-                          max_epochs=5,
+                          max_epochs=50,
                           callbacks=[checkpoint_callback],
                           log_every_n_steps=1,
-                          progress_bar_refresh_rate=10000)
+                          progress_bar_refresh_rate=100)
 
     logging.info(" " * 35 + "↪ elapsed time : "
                             f"{int((time.time() - start_time) // 60)}min "
@@ -567,11 +720,17 @@ def main(text_column="w/o_heading_first_sentence",
     del dpr.train_ds
     del dpr.val_ds
 
-    logging.info("encode all")
-    dpr.encode_all_context_df()
-    logging.info(" " * 35 + "↪ elapsed time : "
-                            f"{int((time.time() - start_time) // 60)}min "
-                            f"{(time.time() - start_time) % 60:.2f}s.")
+    if not path_corpus_dense_tensor:
+        logging.info("encode all")
+        dpr.corpus_dense_tensor = dpr.encode_all_context_df(nb_splits=encode_all_nb_splits,
+                                                            index_split=encode_all_index_split,
+                                                            path_input_ids_tensor=path_input_ids_tensor,
+                                                            path_attention_masks_tensor=path_attention_masks_tensor)
+        logging.info(" " * 35 + "↪ elapsed time : "
+                                f"{int((time.time() - start_time) // 60)}min "
+                                f"{(time.time() - start_time) % 60:.2f}s.")
+    else:
+        dpr.path_corpus_dense_tensor = path_corpus_dense_tensor
 
     logging.info("Test model : dpr()")
     trainer.test(model=dpr)
@@ -585,7 +744,4 @@ def main(text_column="w/o_heading_first_sentence",
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        main(save_path_checkpoints="./checkpoints/" + str(sys.argv[1]))
-    else:
-        main()
+    main()

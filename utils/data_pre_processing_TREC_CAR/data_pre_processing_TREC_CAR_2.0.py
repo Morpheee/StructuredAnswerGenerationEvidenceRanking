@@ -45,7 +45,7 @@ def get_text(page, tokenizer):
             text = t[match.end():]
             if not re.search(r"\w{3,}", text):
                 continue
-            text_id["id"].append(index)
+            text_id["id"].append(str(index))
             text_id["text"].append(text)
         else:
             text_id["id"].append(-1)
@@ -145,7 +145,7 @@ def construct_corpus(path_file: str, tokenizer):
             text = paragraph_text[match.end():]
             if not re.search(r"\w{3,}", text):
                 continue
-            corpus["id"].append(index)
+            corpus["id"].append(str(index))
             corpus["all_passage"].append(text)
             corpus["first_sentence"].append(tokenizer.tokenize(text)[0])
 
@@ -154,8 +154,7 @@ def construct_corpus(path_file: str, tokenizer):
 
 
 def construct_article(path_file: str,
-                      tokenizer,
-                      print_error=True):
+                      tokenizer):
     """
     :param path_file: path to the *.cbor file to process
     :param tokenizer: tokenizer that, when used as tokenizer.tokenize(text) -> output a list of sentences.
@@ -175,62 +174,26 @@ def construct_article(path_file: str,
                     w/o_heading_first_sentence,  # without heading and first sentence of each paragraph
     """
     df = []
+    df_skipped = []
     count_pages = 0
     skipped_pages = 0
-    if print_error:
-        if os.path.exists(log_error_file):
-            with open(log_error_file, "a") as file:
-                file.write("\n\n" + "<>" * 50 + "\n\n" + str(time.asctime()) + "\n")
-                file.write(str(path_file) + "\n\n\n")
-        else:
-            with open(log_error_file, "w") as file:
-                file.write(str(time.asctime()) + "\n")
-                file.write(str(path_file) + "\n\n\n")
-        passage_matching_error = []
-        construction_error = dict()
-    else:
-        passage_matching_error = None
-        construction_error = None
+    no_ids = 0
     with open(path_file, 'rb') as file:
         pages = list(iter_pages(file))
     for page in tqdm(pages, miniters=len(pages) // 10, mininterval=60, maxinterval=180):
-        if page.child_sections:
-            count_pages += 1
-            try:
-                text = get_text(page, tokenizer)
-                text["query"] = page.page_name
+        text = get_text(page, tokenizer)
+        text["query"] = page.page_name
+        if len(text["id"]) > 0:
+            if page.child_sections:
+                count_pages += 1
                 text["outline"] = [r"///".join([str(section.heading) for section in section_path])
                                    for section_path in page.flat_headings_list()]
-                if len(text["id"]) > 0:
-                    df.append(text)
-                else:
-                    skipped_pages += 1
-                    count_pages -= 1
-            except Exception as e:
-                if print_error:
-                    if str(e) in list(construction_error.keys()):
-                        construction_error[str(e)] += 1
-                    else:
-                        construction_error[str(e)] = 1
-                else:
-                    pass
+                df.append(text)
+            else:
+                skipped_pages += 1
+                df_skipped.append(text)
         else:
-            skipped_pages += 1
-
-    if print_error:
-        with open(log_error_file, "a") as file:
-            file.write("\n" + "=== ERRORS ===")
-        try:
-            passage_matching_error = sum(passage_matching_error) / len(passage_matching_error)
-        except ZeroDivisionError:
-            passage_matching_error = 0
-        with open(log_error_file, "a") as file:
-            file.write("\n" + f"average passage_matching_error : {passage_matching_error * 100:.1f}% missing matches")
-        exception_errors = "\n" + " error".ljust(25) + ";" + "count".rjust(10) + "\n" + "-" * 36
-        for k, v in construction_error.items():
-            exception_errors += "\n" + str(k).ljust(25) + ";" + str(v).rjust(10)
-        with open(log_error_file, "a") as file:
-            file.write(exception_errors)
+            no_ids += 1
 
     df = pd.DataFrame(df)
     df = df[[
@@ -247,17 +210,32 @@ def construct_article(path_file: str,
         'id'
     ]]
 
-    logging.info(f"Constructed pages : {str(len(df)).rjust(7)} "
-                 f" ({len(df) / count_pages * 100:.1f}%)".ljust(42) + "\t;\t" +
-                 f"Missed pages : {str(count_pages - len(df)).rjust(7)} "
-                 f" ({(count_pages - len(df)) / count_pages * 100:.1f}%)".ljust(42) +
-                 f"Skipped pages : {str(skipped_pages).rjust(7)} ")
-    return df
+    if df_skipped != []:
+        df_skipped = pd.DataFrame(df_skipped)
+        df_skipped = df_skipped[[
+            'query',
+            'text_w/o_heading_all_passage',
+            'span_w/o_heading_all_passage',
+            'text_w/o_heading_first_sentence',
+            'span_w/o_heading_first_sentence',
+            'id'
+        ]]
+        df_skipped = df_skipped.rename(columns={'text_w/o_heading_all_passage': 'text_all_passage',
+                                                'span_w/o_heading_all_passage': 'span_all_passage',
+                                                'text_w/o_first_sentence': 'text_first_sentence',
+                                                'span_w/o_first_sentence': 'span_first_sentence'})
+
+    logging.info(f"Constructed pages : {str(len(df) + len(df_skipped)).rjust(7)} "
+                 f" ({(len(df) + len(df_skipped)) / count_pages * 100:.1f}%)".ljust(42) + "\t;\t" +
+                 f"Missed pages : {str(count_pages - (len(df) + len(df_skipped))).rjust(7)} "
+                 f" ({(count_pages - (len(df) + len(df_skipped))) / count_pages * 100:.1f}%)".ljust(42) + "\t;\t" +
+                 f"Skipped pages : {str(skipped_pages).rjust(7)} " + "\t;\t" +
+                 f"no ids : {str(no_ids).rjust(7)} ")
+    return df, df_skipped
 
 
 def construct_section(path_file: str,
-                      tokenizer,
-                      print_error=True):
+                      tokenizer):
     """
     :param path_file: path to the *.cbor file to process
     :param tokenizer: tokenizer that, when used as tokenizer.tokenize(text) -> output a list of sentences.
@@ -278,59 +256,31 @@ def construct_section(path_file: str,
 
     """
     df = []
+    df_skipped = []
     count_sections = 0
     skipped_sections = 0
-    if print_error:
-        if os.path.exists(log_error_file):
-            with open(log_error_file, "a") as file:
-                file.write("\n\n" + "<>" * 50 + "\n\n" + str(time.asctime()) + "\n")
-                file.write(str(path_file) + "\n\n\n")
-        else:
-            with open(log_error_file, "w") as file:
-                file.write(str(time.asctime()) + "\n")
-                file.write(str(path_file) + "\n\n\n")
-        construction_error = dict()
-    else:
-        construction_error = None
+    no_ids = 0
     with open(path_file, 'rb') as file:
         pages = list(iter_pages(file))
     for page in tqdm(pages, miniters=len(pages) // 10, mininterval=60, maxinterval=180):
         if page.child_sections:
             for section in page.child_sections:
-                if section.child_sections:
-                    count_sections += 1
-                    try:
-                        text = get_text(section, tokenizer)
-                        text["query"] = page.page_name + r"///" + section.heading
+                text = get_text(section, tokenizer)
+                text["query"] = page.page_name + r"///" + section.heading
+                count_sections += 1
+                if len(text["id"]) > 0:
+                    if section.child_sections:
                         text["outline"] = [r"///".join([page.page_name] + [str(s.heading)
                                                                            for s in
                                                                            sectionpath[sectionpath.index(section)
                                                                                        + 1:len(sectionpath)]])
                                            for sectionpath in page.flat_headings_list() if section in sectionpath]
-                        if len(text["id"]) > 0:
-                            df.append(text)
-                        else:
-                            skipped_sections += 1
-                            count_sections -= 1
-                    except Exception as e:
-                        if print_error:
-                            if str(e) in list(construction_error.keys()):
-                                construction_error[str(e)] += 1
-                            else:
-                                construction_error[str(e)] = 1
-                        else:
-                            pass
+                        df.append(text)
+                    else:
+                        skipped_sections += 1
+                        df_skipped.append(text)
                 else:
-                    skipped_sections += 1
-
-    if print_error:
-        with open(log_error_file, "a") as file:
-            file.write("\n" + "=== ERRORS ===")
-        exception_errors = "\n" + " error".ljust(25) + ";" + "count".rjust(10) + "\n" + "-" * 36
-        for k, v in construction_error.items():
-            exception_errors += "\n" + str(k).ljust(25) + ";" + str(v).rjust(10)
-        with open(log_error_file, "a") as file:
-            file.write(exception_errors)
+                    no_ids += 1
 
     df = pd.DataFrame(df)
     df = df[[
@@ -347,12 +297,28 @@ def construct_section(path_file: str,
         'id'
     ]]
 
+    if df_skipped != []:
+        df_skipped = pd.DataFrame(df_skipped)
+        df_skipped = df_skipped[[
+            'query',
+            'text_w/o_heading_all_passage',
+            'span_w/o_heading_all_passage',
+            'text_w/o_heading_first_sentence',
+            'span_w/o_heading_first_sentence',
+            'id'
+        ]]
+        df_skipped = df_skipped.rename(columns={'text_w/o_heading_all_passage': 'text_all_passage',
+                                                'span_w/o_heading_all_passage': 'span_all_passage',
+                                                'text_w/o_first_sentence': 'text_first_sentence',
+                                                'span_w/o_first_sentence': 'span_first_sentence'})
+
     logging.info(f"Constructed sections : {str(len(df)).rjust(7)} "
-                 f" ({len(df) / count_sections * 100:.1f}%)".ljust(42) + "\t;\t" +
-                 f"Missed sections : {str(count_sections - len(df)).rjust(7)} "
-                 f" ({(count_sections - len(df)) / count_sections * 100:.1f}%)".ljust(42) +
-                 f"Skipped sections : {str(skipped_sections).rjust(7)} ")
-    return df
+                 f" ({(len(df) + len(df_skipped)) / count_sections * 100:.1f}%)".ljust(42) + "\t;\t" +
+                 f"Missed sections : {str(count_sections - (len(df) + len(df_skipped))).rjust(7)} "
+                 f" ({(count_sections - (len(df) + len(df_skipped))) / count_sections * 100:.1f}%)".ljust(42) + "\t;\t" +
+                 f"Skipped sections : {str(skipped_sections).rjust(7)} " + "\t;\t" +
+                 f"no ids : {str(no_ids).rjust(7)} ")
+    return df, df_skipped
 
 
 def main(path_file: str,
@@ -440,26 +406,48 @@ def main(path_file: str,
             file_title = f"{type_train_test}.csv"
         elif save_as == "json":
             file_title = f"{type_train_test}.json"
+        else:
+            file_title = None
         ## ARTICLE
         logging.info("construct article dataset")
-        df_article = construct_article(path_file,
-                                       tokenizer)
+        df_article, df_article_skipped = construct_article(path_file,
+                                                           tokenizer)
         logging.info(f"\tsave dataset at {os.path.join(path_output_folder, f'articles_{file_title}')}")
         if save_as == "csv":
             df_article.to_csv(os.path.join(path_output_folder, f"articles_{file_title}"), index=False)
         elif save_as == "json":
             df_article.to_json(os.path.join(path_output_folder, f"articles_{file_title}"), indent=True)
         del (df_article)
+        ### skipped ones
+        if type(df_article_skipped) is not list:
+            logging.info(f"\tsave dataset at {os.path.join(path_output_folder, f'skipped_articles_{file_title}')}")
+            if save_as == "csv":
+                df_article_skipped.to_csv(os.path.join(path_output_folder, f"skipped_articles_{file_title}"),
+                                          index=False)
+            elif save_as == "json":
+                df_article_skipped.to_json(os.path.join(path_output_folder, f"skipped_articles_{file_title}"),
+                                           indent=True)
+            del (df_article_skipped)
         # SECTION
         logging.info("construct section dataset")
-        df_section = construct_section(path_file,
-                                       tokenizer)
+        df_section, df_section_skipped = construct_section(path_file,
+                                                           tokenizer)
         logging.info(f"\tsave dataset at {os.path.join(path_output_folder, f'sections_{file_title}')}")
         if save_as == "csv":
             df_section.to_csv(os.path.join(path_output_folder, f"sections_{file_title}"), index=False)
         elif save_as == "json":
             df_section.to_json(os.path.join(path_output_folder, f"sections_{file_title}"), indent=True)
         del (df_section)
+        ### skipped ones
+        if type(df_section_skipped) is not list:
+            logging.info(f"\tsave dataset at {os.path.join(path_output_folder, f'skipped_sections_{file_title}')}")
+            if save_as == "csv":
+                df_section_skipped.to_csv(os.path.join(path_output_folder, f"skipped_sections_{file_title}"),
+                                          index=False)
+            elif save_as == "json":
+                df_section_skipped.to_json(os.path.join(path_output_folder, f"skipped_sections_{file_title}"),
+                                           indent=True)
+            del (df_section_skipped)
 
         logging.info(f"DONE. Elapsed time : {time.time() - t_start:.2f}s.\n\n")
 

@@ -1,102 +1,169 @@
 #!/usr/bin/env python3
 
 import pandas as pd
+import numpy as np
 import torch
 import sympy
 import os
 import logging
+import multiprocessing
+from joblib import Parallel, delayed
+import sys
+sys.path.append("../../..")
+from trec_car_tools.python3.trec_car.read_data_own import iter_pages, iter_paragraphs
 from tqdm import tqdm
-tqdm.pandas(miniters=10000, mininterval=60, maxinterval=600)
+tqdm.pandas(miniters=100000, mininterval=60, maxinterval=600)
 
 logging.basicConfig(level=logging.INFO)
-
-str_nb = [str(j) for j in range(10)]
-primes = list(sympy.sieve.primerange(500000, 750000))
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def index_to_int(index):
-    # index = [str(i) if i in str_nb else str(ord(i) - 97) for i in index]
-    # return int(''.join(index))
-    return [int(i) for i in index]
 
-def get_factor(index):
-    assert primes != []
-    factors = []
-    for prime in primes:
-        if index % prime == 0:
-            factors.append(prime)
-    for f in factors:
-        primes.remove(f)
-    return factors
+logging.info("Load all ids...")
+ids = []
+for i in tqdm(list(range(5))) :
+    with open(f"/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold{i}.cbor.paragraphs", "rb") as file :
+        for paragraph in iter_paragraphs(file) :
+            ids.append(int(paragraph.para_id))
+ids = np.array(ids)
 
+if os.path.exists("./primes.npy") :
+    primes = np.load("./primes.npy")
+else :
+    logging.info("Generate primes...")
+    # primes = []
+    # for i in range(100000) :
+    #     primes.append(number.getPrime(8))
+    primes = list(sympy.sieve.primerange(100000000,147000000))
+    primes = np.array(list(primes))
+    logging.info(f"{len(primes)} primes found.")
+    np.save("./primes.npy", primes)
+    logging.info(f"primes saves as ./primes.npy")
 
-def reduce_index(index, smallest_prime):
-    if type(index) == int :
-        return str(index % smallest_prime)
-    elif type(index) == list :
-        return [str(i%smallest_prime) for i in index]
+logging.info("Test all possibilities...")
 
+def test_all(primes_list):
+    for prime in tqdm(primes_list,
+                      miniters=10000,
+                      maxinterval=3600) :
+        remainder = ids % prime
+        if any(remainder == 0) :
+            continue
+        elif len(set(remainder)) < len(ids) :
+            continue
+        else :
+            smallest_prime = int(prime)
+            logging.info(f"smallest_prime : {smallest_prime}")
+            break
 
-def main(smallest_prime=None):
-    if os.path.exists("./ids.json"):
-        logging.info("load ids.json")
-        ids = pd.read_json("ids.json", dtype={"id": str})
-        ids["id"] = ids["id"].progress_apply(int)
-
-        logging.info("sanity check : not any id type != int")
-        assert not any(ids["id"].progress_apply(lambda x : type(x) != int))
-    else :
-        ids = []
-        for i in range(5):
-            logging.info(f"Load ../../../data-set_pre_processed/fold-{i}/corpus_train.json")
-            ids += pd.read_json(f"../../../data-set_pre_processed/fold-{i}/corpus_train.json")["id"].to_list()
-        ids = pd.DataFrame({"id": ids})
-
-        logging.info("save to json")
-        ids.to_json("ids.json", indent=True)
-
-        logging.info("apply(index_to_int)")
-        ids["id"] = ids["id"].progress_apply(index_to_int)
-
-        logging.info("sanity check")
-        assert not any(ids["id"].progress_apply(lambda x : type(x) != int))
-
-        logging.info("save to json")
-        ids["id"] = ids["id"].apply(str)
-        ids.to_json("ids.json", indent=True)
-
-    if smallest_prime is None:
-        logging.info("apply(get_factor)")
-        ids["id"] = ids["id"].progress_apply(get_factor)
-
-        smallest_prime = primes[0]
-
-        logging.info(f"smallest_prime : {smallest_prime}")
-        ids["id"] = ids["id"].progress_apply(lambda x: reduce_index(x, smallest_prime))
-
-    logging.info(f"sanity check : all id % smallest_prime != 0")
-    sanity_check = ids["id"].progress_apply(lambda x : x%smallest_prime != 0)
-    assert all(sanity_check)
-
-    files = []
-    for file_name in ["articles_train.json",
-                      "corpus_train.json",
-                      "sections_train.json"] :
-        files += [f"../../../data-set_pre_processed/fold-{i}/{file_name}" for i in range(5)]
-
-    for file in files :
-        logging.info(f"Processing {file}...")
-        df = pd.read_json(file)
-        for col in df.columns :
-            if "id" in col :
-                logging.info(f"Current column : {col}")
-                df[col] = df[col].progress_apply(index_to_int)
-                df[col] = df[col].progress_apply(lambda x : reduce_index(x, smallest_prime))
-                assert all(df[col].apply(lambda x : x!=0))
-            else :
-                continue
-        df.to_json(file+".new", indent=True)
-
+step = 100000
+num_cores = multiprocessing.cpu_count()
+inputs = tqdm([primes[i:i+step] for i in range(0,len(primes),step)])
+logging.info(f"len inputs : {len(inputs)}")
 
 if __name__ == "__main__":
-    main(618833)
+    processed_list = Parallel(n_jobs=num_cores)(delayed(test_all)(p) for p in inputs)
+
+
+
+
+
+
+# def get_primes(lower_bound=100, upper_bound=1000, step=10000) :
+#     for i in range(lower_bound,upper_bound) :
+#         yield list(sympy.sieve.primerange(i*step,(i+1)*step))
+
+
+# ids = []
+# for i in tqdm(range(5)):
+#     logging.info(f"Load ../../../data-set_pre_processed/fold-{i}/corpus_train.json")
+#     ids += pd.read_json(f"../../../data-set_pre_processed/fold-{i}/corpus_train.json",
+#                         dtype={'id': str})["id"].to_list()
+# ids += pd.read_json(f"../../../data-set_pre_processed/test/corpus_test.json",
+#                         dtype={'id': str})["id"].to_list()
+
+# ids = [int(i) for i in ids]
+# logging.info(f"len(ids) = {len(ids)}")
+
+# abort = False
+# for i in tqdm(ids) :
+#     if i % 2147483647 == 0 :
+#         abort = True
+#         print(i)
+
+# assert abort == False
+# logging.info(f"{2147483647} is not a factor of any index")
+# prime = 2147483647
+
+# del ids
+
+# smallest_prime=None
+# if smallest_prime is None:
+#     primes_gen = get_primes()
+#     smallest_prime = -1
+#     j = 0
+#     for primes in primes_gen :
+#         logging.info(f"primes : {primes[0]} ---> {primes[-1]}")
+#         if j < 0 :
+#             break
+#         j += 1
+#         for prime in tqdm(primes) :
+#             remainder = ids % prime
+#             if any(remainder == 0) :
+#                 continue
+#             else :
+#                 smallest_prime = int(prime)
+#                 logging.info(f"smallest_prime : {smallest_prime}")
+#                 j = -1
+#                 break
+#         if j < 0 :
+#             break
+
+# if smallest_prime == -1 :
+#     exit(1)
+
+# files_name = []
+# for suffix_name in [
+#                   "corpus_train.json",
+#                   "articles_train.json",
+#                   "sections_train.json"
+#                   ] :
+#     files_name += [f"../../../data-set_pre_processed/fold-{i}/{suffix_name}" for i in range(5)]
+# files_name += [f"../../../data-set_pre_processed/test/corpus_test.json",
+#               f"../../../data-set_pre_processed/test/articles_test.json",
+#               f"../../../data-set_pre_processed/test/sections_test.json"]
+# files_name = [file_name.replace("data-set", "data-subset") for file_name in files_name] + files_name
+
+# for file_name in files_name :
+#     logging.info(f"Processing {file_name}...")
+#     try :
+#         df = pd.read_json(file_name)
+#     except FileNotFoundError:
+#         logging.warning("File Not Found")
+#         continue
+#     if "corpus" in file_name :
+#         df["new_id"] = df["id"].apply(lambda x : int(x) % prime)
+#         logging.info(r"sanity check : all id % prime != 0")
+#         assert all(df["new_id"] != 0)
+#     else :
+#         df["new_id"] = df["id"].apply(lambda x_list : [int(x) % prime for x in x_list])
+#         logging.info(r"sanity check : all id % prime != 0")
+#         assert all(df["new_id"].apply(lambda x_list : all([x != 0 for x in x_list])))
+#     df["id"] = df["new_id"]
+#     df = df.drop(["new_id"], axis=1)
+#     logging.info(f"Sanity check passed.")
+#     logging.info(f"save file as {file_name}.short.json.")
+#     df.to_json(file_name+".short.json", indent=True)
+#     logging.info("saved.\n\n")
+# logging.info(f"DONE.\n\n"+"="*50+"\n\n")
+
+# logging.info(f"No error, thus moving all tmp file to real file.")
+# for file_name in files_name :
+#     logging.info(f"Processing {file_name}...")
+#     df = pd.read_json(file_name + ".new.json")
+#     df["id"] = df["new_id"]
+#     df = df.drop(["new_id"], axis=1)
+#     df.to_json(file_name.replace(".json","_short.json"), indent=True)
+#     sys.path.remove(file_name + ".new.json")
+#     logging.info(f"saved.\n")
+# logging.info(f"DONE.\n\n")
