@@ -56,13 +56,40 @@ def get_datasets(
         test_ds,
         test_corpus,
         text_column,
-        nb_irrelevant
+        nb_irrelevant,
+        ratio_val=.1
 ):
-    df_train = pd.read_json(train_ds)
+    df_train = []
+    for tds in train_ds:
+        if os.path.exists(tds) and os.path.isfile(tds):
+            df_train.append(pd.read_json(tds))
+            if "all" in text_column:
+                df_train[-1].rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
+            elif 'first' in text_column:
+                df_train[-1].rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
+    df_train = pd.concat(df_train, axis=0)
     corpus_train = CorpusDataset(path_to_file=train_corpus, text_column=text_column)
-    df_val = pd.read_json(val_ds).sample(int(len(df_train) * .1))
+
+    df_val = []
+    for vds in val_ds:
+        if os.path.exists(vds) and os.path.isfile(vds):
+            df_val.append(pd.read_json(vds))
+            if "all" in text_column:
+                df_val[-1].rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
+            elif 'first' in text_column:
+                df_val[-1].rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
+    df_val = pd.concat(df_val, axis=0).sample(int(len(df_train) * ratio_val))
     corpus_val = CorpusDataset(path_to_file=val_corpus, text_column=text_column)
-    df_test = pd.read_json(test_ds)
+
+    df_test = []
+    for tds in test_ds:
+        if os.path.exists(tds) and os.path.isfile(tds):
+            df_test.append(pd.read_json(tds))
+            if "all" in text_column:
+                df_test[-1].rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
+            elif 'first' in text_column:
+                df_test[-1].rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
+    df_test = pd.concat(df_test, axis=0)
     corpus_test = CorpusDataset(path_to_file=test_corpus, text_column=text_column)
 
     ds_train = QueryDataset(df=df_train,
@@ -78,6 +105,11 @@ def get_datasets(
                            corpus=corpus_test,
                            nb_irrelevant=nb_irrelevant,
                            test=True)
+
+    logging.info(f"\n\n"
+                 f"training samples :   {len(ds_train)}\n"
+                 f"validation samples : {len(ds_val)}\n"
+                 f"test samples :       {len(ds_test)}\n")
 
     return ds_train, ds_val, ds_test
 
@@ -140,13 +172,14 @@ class QueryDataset(Dataset):
                 df = pd.read_csv(path)
 
         df = df[["query",
-                 "outline",
+                 # "outline",
                  "text_" + text_column,
                  "id"]]
-        df = df.loc[df["outline"].apply(len) > 0]
-        df["text"] = df["text_" + text_column]
+        # df = df.loc[df["outline"].apply(len) > 0]
+        df = df.rename(columns={"text_" + text_column: "text"})
         df["id"] = df["id"].apply(parse_ids)
         df = df.loc[df["text"].apply(lambda text: text != "\n")]
+        df["query"] = df["query"].apply(lambda x: x.replace("///", " "))
         df = df[["query", "id"]]
         return df
 
@@ -254,6 +287,9 @@ class DPR(pl.LightningModule):
                         "MRR@10": [], "MRR@25": [],
                         "RECALL@10": [], "RECALL@25": [], "RECALL@50": [], "RECALL@200": [],
                         "MAP": []}
+        self.retrieved = []
+        self.test_epoch_end_suffix = ""
+        self.test_epoch_end_file_name = ""
 
     # Freeze the first self.freeze_params % layers
     def freeze_layers(self):
@@ -437,8 +473,10 @@ class DPR(pl.LightningModule):
             retrieved_corpus = self.test_ds.corpus.iloc[retrieved_indexes.cpu().detach().numpy()]
             retrieved_ids = retrieved_corpus["id"].to_numpy()
             reference_ids = data["query"]["ids"]
-            self.metrics["ACCURACY"].append(ACCURACY(retrieved_ids, reference_ids,
-                                                     k=len(reference_ids)))
+            acc, correctness = ACCURACY(retrieved_ids, reference_ids,
+                                        k=len(reference_ids),
+                                        return_list=True)
+            self.metrics["ACCURACY"].append(acc)
             self.metrics["MRR@10"].append(MRR(retrieved_ids, reference_ids,
                                               k=10))
             self.metrics["MRR@25"].append(MRR(retrieved_ids, reference_ids,
@@ -453,17 +491,20 @@ class DPR(pl.LightningModule):
                                                      k=200))
             self.metrics["MAP"].append(MAP(retrieved_ids, reference_ids,
                                            k=len(reference_ids)))
+            self.retrieved.append({"query": data["query"]["text"],
+                                   "retrieved_id": retrieved_ids,
+                                   "correct": correctness})
         query_text = data["query"]["text"]
         k = len(reference_ids)
         similarity = similarity_score[retrieved_indexes[:k]].cpu().detach().numpy()
         retrieved = retrieved_corpus.iloc[retrieved_indexes[:k].cpu()]
         retrieved.reset_index(drop=True, inplace=True)
-        _, correct = ACCURACY(retrieved_ids, reference_ids, k=len(reference_ids), return_list=True)
+        _, correctness = ACCURACY(retrieved_ids, reference_ids, k=len(reference_ids), return_list=True)
 
-        return {"query_text" : query_text,
-                "similarity" : similarity,
-                "retrieved" : retrieved,
-                "correct" : correct}
+        return {"query_text": query_text,
+                "similarity": similarity,
+                "retrieved": retrieved,
+                "correct": correctness}
 
     def test_epoch_end(self, outputs):
 
@@ -476,21 +517,26 @@ class DPR(pl.LightningModule):
               f"similarity,".ljust(12),
               f"id".ljust(10),
               f"text".ljust(100))
-        for c,s,i,t in zip(outputs[-1]["correct"],
-                           outputs[-1]["similarity"],
-                           outputs[-1]["retrieved"]["id"].tolist(),
-                           outputs[-1]["retrieved"]["text"].tolist()):
+        for c, s, i, t in zip(outputs[-1]["correct"],
+                              outputs[-1]["similarity"],
+                              outputs[-1]["retrieved"]["id"].tolist(),
+                              outputs[-1]["retrieved"]["text"].tolist()):
             print(f"{'True' if c else 'False'}".ljust(10),
                   f"{s:.2f}".ljust(12),
                   f"{str(i)[:5]}...".ljust(10),
-                  f"{t[:100]}{'...' if len(t)> 100 else ''}".ljust(100))
+                  f"{t[:100]}{'...' if len(t) > 100 else ''}".ljust(100))
         print("\n\n")
         for k, v in self.metrics.items():
             if len(v) > 0:
                 self.metrics[k] = sum(v) / len(v)
-        for k,v in self.metrics.items() :
-            print(f"{str(k).ljust(12)} : {v*100:.2f}")
+        for k, v in self.metrics.items():
+            print(f"{str(k).ljust(12)} : {v * 100:.2f}")
         print("\n\n\n\n\n")
+        retrieved = pd.DataFrame(self.retrieved)
+        save_path = os.path.join("./retrieved", self.test_epoch_end_suffix.replace("/tensors", ""))
+        mkdir(save_path)
+        retrieved["retrieved_id"] = retrieved["retrieved_id"].apply(lambda x_list: [str(x) for x in x_list])
+        retrieved.to_json(os.path.join(save_path, self.test_epoch_end_file_name), indent=True)
 
     def encode_all_context_df(self,
                               path_input_ids_tensor=None,
@@ -498,7 +544,11 @@ class DPR(pl.LightningModule):
                               step=32,
                               save_every=250,
                               nb_splits=0,
-                              index_split=0):
+                              index_split=0,
+                              suffix=""):
+        save_path = os.path.join("./tensors/dpr", suffix)
+        mkdir(save_path)
+
         contexts = self.test_ds.corpus
 
         self.context_model.eval()
@@ -530,8 +580,8 @@ class DPR(pl.LightningModule):
                 input_ids_tensor[i], attention_mask_tensor[i] = token_process(text)
                 i += 1
 
-            torch.save(input_ids_tensor, "./tensors/dpr/input_ids_tensor.pt")
-            torch.save(attention_mask_tensor, "./tensors/dpr/attention_mask_tensor.pt")
+            torch.save(input_ids_tensor, os.path.join(save_path, "input_ids_tensor.pt"))
+            torch.save(attention_mask_tensor, os.path.join(save_path, "attention_mask_tensor.pt"))
 
         # embedding
         logging.info("embedding")
@@ -546,19 +596,70 @@ class DPR(pl.LightningModule):
                                        attention_mask=attention_mask_tensor[i:i + step])["pooler_output"]
             # torch.save(dense, f"./tensors/dpr/dense/dense_tensor.step-{i}_over_{len(contexts)}.pt")
             dense_tensor[i: i + dense.size(0)] = dense
-            if (i % save_every * step) == 0:
-                torch.save(dense_tensor,
-                           f"./tensors/dpr/dense/dense_tensor.start-{steps[index_split - 1]}_end-{i + step}.pt")
+            # if (i % (save_every * step)) == 0:
+            #     torch.save(dense_tensor,
+            #                os.path.join(save_path,
+            #                             f"dense/dense_tensor.start-{steps[index_split - 1]}_end-{i + step}.pt"))
 
         torch.save(dense_tensor,
-                   f"./tensors/dpr/dense_tensor.start-{steps[index_split - 1]}_end-{steps[index_split]}.pt")
+                   os.path.join(save_path,
+                                f"dense_tensor.start-{steps[index_split - 1]}_end-{steps[index_split]}.pt"))
         self.context_dense_tensor = dense_tensor
         return dense_tensor
+
+
+def check_cohenrence(text_column,
+                     load_from_checkpoint,
+                     train_ds, train_ds_skipped,
+                     val_ds, val_ds_skipped,
+                     test_ds, test_ds_skipped,
+                     suffix, checkpoints_suffix):
+    a = "all_passage" in text_column
+    f = "first_sentence" in text_column
+    if load_from_checkpoint:
+        a = a and "all_passage" in load_from_checkpoint
+        f = f and "first_sentence" in load_from_checkpoint
+    if suffix:
+        a = a and "all_passage" in suffix
+        f = f and "first_sentence" in suffix
+    assert a or f
+
+    no_skipped_1 = True
+    if load_from_checkpoint:
+        no_skipped_1 = no_skipped_1 and "no_skipped" in load_from_checkpoint
+    if suffix:
+        no_skipped_1 = no_skipped_1 and "no_skipped" in suffix
+    no_skipped_2 = ("no_skipped" in train_ds) and ("no_skipped" in val_ds) and ("no_skipped" in test_ds)
+    no_skipped_2 = no_skipped_2 or not (
+            ("skipped" in train_ds) or ("no_skipped" in val_ds) or ("no_skipped" in test_ds))
+    no_skipped_3 = (train_ds is not None) and (val_ds is not None) and (test_ds is not None)
+    only_skipped_1 = True
+    if load_from_checkpoint:
+        only_skipped_1 = only_skipped_1 and "only_skipped" in load_from_checkpoint
+    if suffix:
+        only_skipped_1 = only_skipped_1 and "only_skipped" in suffix
+    only_skipped_2 = (train_ds_skipped is not None) and (val_ds_skipped is not None) and (test_ds_skipped is not None)
+    only_skipped_3 = (train_ds is None) and (val_ds is None) and (test_ds is None)
+    no_skipped = (no_skipped_1 and no_skipped_2 and no_skipped_3)
+    only_skipped = (only_skipped_1 and only_skipped_2 and only_skipped_3)
+
+    assert (no_skipped or only_skipped) or not (no_skipped and only_skipped)
+    sections_1 = True
+    if load_from_checkpoint:
+        sections_1 = sections_1 and "sections" in load_from_checkpoint
+    if suffix:
+        sections_1 = sections_1 and "sections" in suffix
+    section_2 = "sections" in train_ds and "sections" in val_ds and "sections" in test_ds
+
+    assert (sections_1 and section_2) or not (sections_1 and section_2)
+    return True
 
 
 @click.command()
 @click.option("--checkpoints-suffix", default="",
               help="suffix of checkpoints save path")
+@click.option("--suffix", default="",
+              help="suffix of test_phase")
 @click.option("--encode-all-nb-splits", default=0,
               help="if >0 number of cut for encoding all documents. else, if 0 pass (validation step")
 @click.option("--encode-all-index-split", default=0,
@@ -571,15 +672,21 @@ class DPR(pl.LightningModule):
               help="if already computed, path to tensor containing attention masks of corpus (validation step")
 @click.option("--text-column", default="w_heading_first_sentence",
               help="text column to keep (w or w/o heading // first_sentence or all_passage")
-@click.option("--train-ds", default="fold-0/articles_train.json",
+@click.option("--train-ds", default="fold-0/sections_train.json",
+              help="training dataset.")
+@click.option("--train-ds-skipped", default="",  # "fold-0/skipped_sections_train.json",
               help="training dataset.")
 @click.option("--train-corpus", default="fold-0/corpus_train.json",
               help="training corpus.")
-@click.option("--val-ds", default="fold-1/articles_train.json",
+@click.option("--val-ds", default="fold-1/sections_train.json",
+              help="training dataset.")
+@click.option("--val-ds-skipped", default="",  # "fold-1/skipped_sections_train.json",
               help="training dataset.")
 @click.option("--val-corpus", default="fold-1/corpus_train.json",
               help="val corpus.")
-@click.option("--test-ds", default="test/articles_test.json",
+@click.option("--test-ds", default="test/sections_test.json",
+              help="test dataset.")
+@click.option("--test-ds-skipped", default="",  # "test/skipped_sections_test.json",
               help="test dataset.")
 @click.option("--test-corpus", default="test/corpus_test.json",
               help="test corpus.")
@@ -589,6 +696,7 @@ class DPR(pl.LightningModule):
               help="for test phase, if already computed, path to corpus' dense tensor.")
 def main(text_column,
          checkpoints_suffix,
+         suffix,
          nb_irrelevant,
          load_from_checkpoint,
          encode_all_nb_splits,
@@ -597,34 +705,48 @@ def main(text_column,
          path_attention_masks_tensor,
          path_corpus_dense_tensor,
          train_ds,
+         train_ds_skipped,
          train_corpus,
          val_ds,
+         val_ds_skipped,
          val_corpus,
          test_ds,
+         test_ds_skipped,
          test_corpus,
          save_path_checkpoints="./checkpoints",
          model_name="dpr_retriever",
-         small=True):
+         small=False):
     logging.info(
         "List of parameters :"
-        f"\n\ttext_column = {text_column},"
-        f"\n\tsave_path_checkpoints = {save_path_checkpoints},"
-        f"\n\tcheckpoints_suffix = {checkpoints_suffix},"
-        f"\n\tmodel_name = {model_name},"
-        f"\n\tnb_irrelevant = {nb_irrelevant},"
-        f"\n\tsmall = {small},"
-        f"\n\tload_from_checkpoint = {load_from_checkpoint},"
-        f"\n\tencode_all_nb_splits = {encode_all_nb_splits},"
-        f"\n\tencode_all_index_split = {encode_all_index_split},"
-        f"\n\tpath_input_ids_tensor = {path_input_ids_tensor},"
+        f"\n\ttext_column =                 {text_column},"
+        f"\n\tsave_path_checkpoints =       {save_path_checkpoints},"
+        f"\n\tcheckpoints_suffix =          {checkpoints_suffix},"
+        f"\n\tmodel_name =                  {model_name},"
+        f"\n\tnb_irrelevant =               {nb_irrelevant},"
+        f"\n\tsmall =                       {small},"
+        f"\n\tload_from_checkpoint =        {load_from_checkpoint},"
+        f"\n\tencode_all_nb_splits =        {encode_all_nb_splits},"
+        f"\n\tencode_all_index_split =      {encode_all_index_split},"
+        f"\n\tpath_input_ids_tensor =       {path_input_ids_tensor},"
         f"\n\tpath_attention_masks_tensor = {path_attention_masks_tensor}"
-        f"\n\ttrain_ds = {train_ds}"
-        f"\n\ttrain_corpus = {train_corpus}"
-        f"\n\tval_ds = {val_ds}"
-        f"\n\tval_corpus = {val_corpus}"
-        f"\n\ttest_ds = {test_ds}"
-        f"\n\ttest_corpus = {test_corpus}"
+        f"\n\ttrain_ds =                    {train_ds}"
+        f"\n\ttrain_ds_skipped =            {train_ds_skipped}"
+        f"\n\ttrain_corpus =                {train_corpus}"
+        f"\n\tval_ds =                      {val_ds}"
+        f"\n\tval_ds_skipped =              {val_ds_skipped}"
+        f"\n\tval_corpus =                  {val_corpus}"
+        f"\n\ttest_ds =                     {test_ds}"
+        f"\n\ttest_ds_skipped =             {test_ds_skipped}"
+        f"\n\ttest_corpus =                 {test_corpus}"
     )
+
+    # assert check_cohenrence(text_column,
+    #                         load_from_checkpoint,
+    #                         train_ds, train_ds_skipped,
+    #                         val_ds, val_ds_skipped,
+    #                         test_ds, test_ds_skipped,
+    #                         suffix, checkpoints_suffix)
+
     start_time = time.time()
 
     logging.info(" " * 35 + "↪ elapsed time : "
@@ -637,11 +759,11 @@ def main(text_column,
         path_to_file_prefix = "../../../data-set_pre_processed/"
 
     ds_train, ds_val, ds_test = get_datasets(
-        train_ds=os.path.join(path_to_file_prefix, train_ds),
+        train_ds=[os.path.join(path_to_file_prefix, train_ds), os.path.join(path_to_file_prefix, train_ds_skipped)],
         train_corpus=os.path.join(path_to_file_prefix, train_corpus),
-        val_ds=os.path.join(path_to_file_prefix, val_ds),
+        val_ds=[os.path.join(path_to_file_prefix, val_ds), os.path.join(path_to_file_prefix, val_ds_skipped)],
         val_corpus=os.path.join(path_to_file_prefix, val_corpus),
-        test_ds=os.path.join(path_to_file_prefix, test_ds),
+        test_ds=[os.path.join(path_to_file_prefix, test_ds), os.path.join(path_to_file_prefix, test_ds_skipped)],
         test_corpus=os.path.join(path_to_file_prefix, test_corpus),
         text_column=text_column,
         nb_irrelevant=nb_irrelevant,
@@ -676,7 +798,7 @@ def main(text_column,
                           accelerator="gpu",
                           gpus=-1,
                           strategy='dp',
-                          max_epochs=100,
+                          max_epochs=15,
                           callbacks=[checkpoint_callback],
                           log_every_n_steps=1,
                           progress_bar_refresh_rate=100)
@@ -684,7 +806,7 @@ def main(text_column,
         trainer = Trainer(logger=logger,
                           precision=32,
                           accelerator="cpu",
-                          max_epochs=50,
+                          max_epochs=15,
                           callbacks=[checkpoint_callback],
                           log_every_n_steps=1,
                           progress_bar_refresh_rate=100)
@@ -725,7 +847,8 @@ def main(text_column,
         dpr.corpus_dense_tensor = dpr.encode_all_context_df(nb_splits=encode_all_nb_splits,
                                                             index_split=encode_all_index_split,
                                                             path_input_ids_tensor=path_input_ids_tensor,
-                                                            path_attention_masks_tensor=path_attention_masks_tensor)
+                                                            path_attention_masks_tensor=path_attention_masks_tensor,
+                                                            suffix=suffix)
         logging.info(" " * 35 + "↪ elapsed time : "
                                 f"{int((time.time() - start_time) // 60)}min "
                                 f"{(time.time() - start_time) % 60:.2f}s.")
@@ -733,6 +856,8 @@ def main(text_column,
         dpr.path_corpus_dense_tensor = path_corpus_dense_tensor
 
     logging.info("Test model : dpr()")
+    dpr.test_epoch_end_suffix = suffix
+    dpr.test_epoch_end_file_name = "retrieved_" + text_column + ".json"
     trainer.test(model=dpr)
     logging.info(" " * 35 + "↪ elapsed time : "
                             f"{int((time.time() - start_time) // 60)}min "

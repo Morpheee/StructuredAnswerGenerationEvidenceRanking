@@ -78,6 +78,3 @@ def meteor(generated, reference, **kwargs):
     metric.add_batch(predictions=generated, references=reference)
     results = metric.compute()
     return results
-
-
-print(meteor([[1,2,3],[4,5,3,2],[4,3,2,1]], [[2,1,3],[1,4,3,2],[1,2]]))

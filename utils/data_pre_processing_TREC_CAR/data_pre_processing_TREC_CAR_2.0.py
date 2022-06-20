@@ -222,8 +222,8 @@ def construct_article(path_file: str,
         ]]
         df_skipped = df_skipped.rename(columns={'text_w/o_heading_all_passage': 'text_all_passage',
                                                 'span_w/o_heading_all_passage': 'span_all_passage',
-                                                'text_w/o_first_sentence': 'text_first_sentence',
-                                                'span_w/o_first_sentence': 'span_first_sentence'})
+                                                'text_w/o_heading_first_sentence': 'text_first_sentence',
+                                                'span_w/o_heading_first_sentence': 'span_first_sentence'})
 
     logging.info(f"Constructed pages : {str(len(df) + len(df_skipped)).rjust(7)} "
                  f" ({(len(df) + len(df_skipped)) / count_pages * 100:.1f}%)".ljust(42) + "\t;\t" +
@@ -309,8 +309,8 @@ def construct_section(path_file: str,
         ]]
         df_skipped = df_skipped.rename(columns={'text_w/o_heading_all_passage': 'text_all_passage',
                                                 'span_w/o_heading_all_passage': 'span_all_passage',
-                                                'text_w/o_first_sentence': 'text_first_sentence',
-                                                'span_w/o_first_sentence': 'span_first_sentence'})
+                                                'text_w/o_heading_first_sentence': 'text_first_sentence',
+                                                'span_w/o_heading_first_sentence': 'span_first_sentence'})
 
     logging.info(f"Constructed sections : {str(len(df)).rjust(7)} "
                  f" ({(len(df) + len(df_skipped)) / count_sections * 100:.1f}%)".ljust(42) + "\t;\t" +

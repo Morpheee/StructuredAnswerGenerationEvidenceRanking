@@ -93,7 +93,7 @@ def get_datasets(
     df_test = AnswerGenerationData(df=df_test,
                                    text_column=text_column,
                                    corpus=corpus_test,
-                                   nb_passages=nb_passages)
+                                   nb_passages = nb_passages)
 
     logging.info(f"\n\n"
                  f"training samples :   {len(df_train)}\n"
@@ -132,7 +132,7 @@ class AnswerGenerationData(Dataset):
 
         assert operator.xor(path_to_df is None, df is None)
         self.corpus = corpus
-        self.nb_passages = nb_passages
+        self.nb_passages=nb_passages
         self.df = self.get_dataset(path_to_df=path_to_df,
                                    df=df,
                                    text_column=text_column)
@@ -156,21 +156,23 @@ class AnswerGenerationData(Dataset):
             # df = pd.read_csv(path)
             df = pd.read_json(path_to_df)
         columns = ["query",
-                   # "outline",
+                   "outline",
                    "text",
                    "id"]
         df = df[["query",
-                 # "outline",
+                 "outline",
                  "text_" + text_column,
                  "id"]]
         # df = df.loc[df["outline"].map(len) > 0]
         df["text"] = df["text_" + text_column]
         df["id"] = df["id"].apply(parse_ids)
-        if self.nb_passages:
-            df["id"] = df["id"].apply(lambda x_list: x_list[:self.nb_passages])
+        if self.nb_passages :
+            df["id"] = df["id"].apply(lambda x_list : x_list[:self.nb_passages])
         df = df[columns]
         df = df.loc[df["text"] != "\n"]
-        df.rename(columns={"text": "target"}, inplace=True)
+        df["outline"] = df["outline"].apply(lambda x_list : [x.split("///")[-1] for x in x_list])
+        df["outline"] = df["outline"].apply(str)
+        df.rename(columns={"outline": "target"}, inplace=True)
         return df.reset_index(drop=True)
 
     def __len__(self):
@@ -442,11 +444,11 @@ class Bart(pl.LightningModule):
         gen_ids = []
         df = []
         for output in outputs:
-            for input_ids_target, generated_ids, target_text, generated_text in tqdm(output, miniters=100):
+            for input_ids_target, generated_ids, source_text, generated_text in tqdm(output, miniters=100):
                 df.append({"input_ids_target": input_ids_target.tolist(),
                            "generated_ids": generated_ids.tolist(),
-                           "target_text": target_text,
-                           "generated_text": generated_text})
+                           "source_text" : source_text,
+                           "generated_text" : generated_text})
                 self.metrics["bleu"].append(bleu(generated_ids, input_ids_target)["score"])
                 rouge_comp = rouge(generated_ids, input_ids_target)
                 # bert_score_comp = bert_score(generated_ids, input_ids_target)
@@ -478,7 +480,6 @@ class Bart(pl.LightningModule):
         logging.info(f"Saving retrieved df to {os.path.join(self.suffix, 'test.json')}")
         df.to_json(os.path.join(self.suffix, "test.json"), indent=True)
         logging.info(f"Done.")
-
 
 def check_cohenrence(text_column,
                      load_from_checkpoint,
