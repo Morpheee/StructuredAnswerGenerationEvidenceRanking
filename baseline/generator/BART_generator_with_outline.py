@@ -1,4 +1,7 @@
 #! /usr/bin/env python3
+
+# https://towardsdatascience.com/teaching-bart-to-rap-fine-tuning-hugging-faces-bart-model-41749d38f3ef
+
 # imports
 from transformers import (BartTokenizer,
                           BartForConditionalGeneration,
@@ -64,21 +67,21 @@ def get_datasets(
 ):
     df_train = pd.read_json(train_ds)
     if "all" in text_column:
-        df_train.rename(columns={"text_all_passage": "text_"+text_column}, inplace=True)
+        df_train.rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
     elif 'first' in text_column:
-        df_train.rename(columns={"text_first_sentence": "text_"+text_column}, inplace=True)
+        df_train.rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
     corpus_train = CorpusDataset(path_to_file=train_corpus, text_column=text_column)
     df_val = pd.read_json(val_ds).sample(int(len(df_train) * ratio_val))
     if "all" in text_column:
-        df_val.rename(columns={"text_all_passage": "text_"+text_column}, inplace=True)
+        df_val.rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
     elif 'first' in text_column:
-        df_val.rename(columns={"text_first_sentence": "text_"+text_column}, inplace=True)
+        df_val.rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
     corpus_val = CorpusDataset(path_to_file=val_corpus, text_column=text_column)
     df_test = pd.read_json(test_ds)
     if "all" in text_column:
-        df_test.rename(columns={"text_all_passage": "text_"+text_column}, inplace=True)
+        df_test.rename(columns={"text_all_passage": "text_" + text_column}, inplace=True)
     elif 'first' in text_column:
-        df_test.rename(columns={"text_first_sentence": "text_"+text_column}, inplace=True)
+        df_test.rename(columns={"text_first_sentence": "text_" + text_column}, inplace=True)
     corpus_test = CorpusDataset(path_to_file=test_corpus, text_column=text_column)
 
     df_train = AnswerGenerationData(df=df_train,
@@ -176,7 +179,10 @@ class AnswerGenerationData(Dataset):
     def __getitem__(self, item):
         if type(item) == int:
             row = pd.DataFrame(self.df.loc[item:item])
-            row["source"] = row[["query", "id"]].apply(lambda row: self.get_paragraphs(row[0], row[1]), axis=1)
+            row["source"] = row[["query",
+                                 "id",
+                                 "generated_outline"]].apply(lambda row: self.get_paragraphs(row[0], row[1], row[2]),
+                                                             axis=1)
             row = row[["source", "target"]]
             return row.to_dict('records')[0]
         elif type(item) == str:
@@ -500,7 +506,7 @@ def check_cohenrence(text_column,
         no_skipped_1 = no_skipped_1 and "no_skipped" in suffix
     no_skipped_2 = ("no_skipped" in train_ds) and ("no_skipped" in val_ds) and ("no_skipped" in test_ds)
     no_skipped_2 = no_skipped_2 or not (
-                ("skipped" in train_ds) or ("no_skipped" in val_ds) or ("no_skipped" in test_ds))
+            ("skipped" in train_ds) or ("no_skipped" in val_ds) or ("no_skipped" in test_ds))
     no_skipped_3 = (train_ds is not None) and (val_ds is not None) and (test_ds is not None)
     only_skipped_1 = True
     if load_from_checkpoint:
@@ -531,7 +537,7 @@ def check_cohenrence(text_column,
               help="suffix of test_phase")
 @click.option("--load-from-checkpoint", default=None,
               help="if already computed, path to tensor containing attention masks of corpus (validation step")
-@click.option("--continue-training", default = False,
+@click.option("--continue-training", default=False,
               help="Whether to continue training when loading a checkpoint.")
 @click.option("--text-column", default="w/o_heading_all_passage",
               help="text column to keep (w or w/o heading // first_sentence or all_passage")
@@ -664,14 +670,14 @@ def main(
         logging.info(" " * 35 + "↪ elapsed time : "
                                 f"{int((time.time() - start_time) // 60)}min "
                                 f"{(time.time() - start_time) % 60:.2f}s.")
-    else :
+    else:
         logging.info("make model : bart()")
         bart = Bart(train_val_test=(ds_train, ds_val, ds_test))
         logging.info(" " * 35 + "↪ elapsed time : "
                                 f"{int((time.time() - start_time) // 60)}min "
                                 f"{(time.time() - start_time) % 60:.2f}s.")
 
-    if not load_from_checkpoint or continue_training :
+    if not load_from_checkpoint or continue_training:
         logging.info(f"Fit trainer")
         trainer.fit(model=bart)
         logging.info(" " * 35 + "↪ elapsed time : "

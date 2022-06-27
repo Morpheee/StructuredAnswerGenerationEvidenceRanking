@@ -340,6 +340,10 @@ class Bart(pl.LightningModule):
                                                                      padding="max_length",
                                                                      return_tensors='pt').values()
 
+            print("\n\n\n\n")
+            print(data)
+            exit()
+
             # Shift the decoder tokens right (but NOT the tgt_ids)
             decoder_input_ids = self.shift_tokens_right(input_ids_target,
                                                         self.tokenizer.pad_token_id)
@@ -537,15 +541,15 @@ def check_cohenrence(text_column,
               help="if already computed, path to tensor containing attention masks of corpus (validation step")
 @click.option("--text-column", default="w_heading_first_sentence",
               help="text column to keep (w or w/o heading // first_sentence or all_passage")
-@click.option("--train-ds", default="fold-0/sections_train.json",
+@click.option("--train-ds", default="fold-0/articles_train.json",
               help="training dataset.")
 @click.option("--train-corpus", default="fold-0/corpus_train.json",
               help="training corpus.")
-@click.option("--val-ds", default="fold-1/sections_train.json",
+@click.option("--val-ds", default="fold-1/articles_train.json",
               help="training dataset.")
 @click.option("--val-corpus", default="fold-1/corpus_train.json",
               help="val corpus.")
-@click.option("--test-ds", default="test/sections_test.json",
+@click.option("--test-ds", default="test/articles_test.json",
               help="test dataset.")
 @click.option("--test-corpus", default="test/corpus_test.json",
               help="test corpus.")

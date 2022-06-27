@@ -38,7 +38,7 @@ def ACCURACY(retrieved, reference, k=10, return_list=False):
     top_k = retrieved[:k]
     acc = sum(top_k_i in reference for top_k_i in top_k) / k
     if return_list :
-        return acc, [top_k_i in reference for top_k_i in top_k]
+        return acc, [top_k_i in reference for top_k_i in retrieved]
     else:
         return acc
 

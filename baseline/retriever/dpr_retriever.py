@@ -290,6 +290,7 @@ class DPR(pl.LightningModule):
         self.retrieved = []
         self.test_epoch_end_suffix = ""
         self.test_epoch_end_file_name = ""
+        self.latency = 0
 
     # Freeze the first self.freeze_params % layers
     def freeze_layers(self):
@@ -466,13 +467,17 @@ class DPR(pl.LightningModule):
         self.context_model.eval()
         self.query_model.eval()
 
+        time_avg = 0
         for data in batch:
+            time_start = time.time()
             query_dense = self.get_dense_query(data["query"]).to(torch.float64)
             similarity_score = self.dot_product(query_dense, self.context_dense_tensor.to(query_dense.device))
             retrieved_indexes = similarity_score.argsort(descending=True)
             retrieved_corpus = self.test_ds.corpus.iloc[retrieved_indexes.cpu().detach().numpy()]
             retrieved_ids = retrieved_corpus["id"].to_numpy()
             reference_ids = data["query"]["ids"]
+            time_avg += (time.time() - time_start)
+
             acc, correctness = ACCURACY(retrieved_ids, reference_ids,
                                         k=len(reference_ids),
                                         return_list=True)
@@ -501,6 +506,8 @@ class DPR(pl.LightningModule):
         retrieved.reset_index(drop=True, inplace=True)
         _, correctness = ACCURACY(retrieved_ids, reference_ids, k=len(reference_ids), return_list=True)
 
+        self.latency += time_avg / len(batch)
+
         return {"query_text": query_text,
                 "similarity": similarity,
                 "retrieved": retrieved,
@@ -511,6 +518,8 @@ class DPR(pl.LightningModule):
         # self.test_predictions = sum([output[0] for output in outputs], [])
         # self.test_actuals = sum([output[1] for output in outputs], [])
         # self.test_outlines = sum([output[2] for output in outputs], [])
+        self.latency /= len(outputs)
+        logging.info(f"latency : {self.latency}s.")
         print("\n\n\n")
         print(f"Query_sample : {outputs[-1]['query_text']}")
         print(f"correct,".ljust(10),

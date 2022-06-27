@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38c077e-101a-47d2-bd5a-fcf425754aff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/StructuredAnswerGenerationEvidenceRanking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StructuredAnswerGenerationEvidenceRanking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseline/generator/BART_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseline/generator/BART_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_0/events.out.tfevents.1653481605.Y540.284770.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_0/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_1/events.out.tfevents.1653486302.Y540.301158.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_1/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_2/events.out.tfevents.1653487882.Y540.308628.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_2/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_3/events.out.tfevents.1653492580.Y540.331169.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_3/hparams.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_4/events.out.tfevents.1653492870.Y540.356571.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr/checkpoints/dpr_retriever/version_4/hparams.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseline/generator/BART_generator_outline.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseline/generator/BART_generator_outline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseline/retriever/dpr_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseline/retriever/dpr_retriever.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseline/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseline/utils/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data_pre_processing_TREC_CAR/data_pre_processing_TREC_CAR_2.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_pre_processing_TREC_CAR/data_pre_processing_TREC_CAR_2.0.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +114,14 @@
       <workItem from="1655658505201" duration="11819000" />
       <workItem from="1655707276819" duration="13206000" />
       <workItem from="1655726644660" duration="1938000" />
+      <workItem from="1655794342369" duration="4596000" />
+      <workItem from="1655993077373" duration="4421000" />
+      <workItem from="1656008540099" duration="16000" />
+      <workItem from="1656073374912" duration="271000" />
+      <workItem from="1656093526007" duration="2223000" />
+      <workItem from="1656158559107" duration="3227000" />
+      <workItem from="1656265410879" duration="3295000" />
+      <workItem from="1656285664743" duration="206000" />
     </task>
     <servers />
   </component>
