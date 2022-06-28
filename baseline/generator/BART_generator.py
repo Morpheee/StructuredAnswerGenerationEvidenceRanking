@@ -1,4 +1,7 @@
 #! /usr/bin/env python3
+
+# https://towardsdatascience.com/teaching-bart-to-rap-fine-tuning-hugging-faces-bart-model-41749d38f3ef
+
 # imports
 from transformers import (BartTokenizer,
                           BartForConditionalGeneration,
@@ -424,6 +427,7 @@ class Bart(pl.LightningModule):
                     [self.tokenizer.decode(w, skip_special_tokens=True, clean_up_tokenization_spaces=True)
                      for w in generated_ids])
                 output.append([input_ids_target, generated_ids, data["target"], generated_text])
+                
 
             print("\nsource :", data["source"])
             print("\ntarget :", data["target"])
@@ -606,7 +610,7 @@ def main(
         train_corpus=os.path.join(path_to_file_prefix, train_corpus),
         val_ds=os.path.join(path_to_file_prefix, val_ds),
         val_corpus=os.path.join(path_to_file_prefix, val_corpus),
-        test_ds=os.path.join(path_to_file_prefix, test_ds) if test_prefix else test_ds,
+        test_ds=os.path.join(path_to_file_prefix, test_ds) if test_prefix==True else test_ds,
         test_corpus=os.path.join(path_to_file_prefix, test_corpus),
         text_column=text_column,
         nb_passages=nb_passages

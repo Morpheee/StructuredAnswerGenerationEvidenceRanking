@@ -693,7 +693,7 @@ def check_cohenrence(text_column,
               help="training dataset.")
 @click.option("--val-corpus", default="fold-1/corpus_train.json",
               help="val corpus.")
-@click.option("--test-ds", default="test/sections_test.json",
+@click.option("--test-ds", default="", #"test/sections_test.json",
               help="test dataset.")
 @click.option("--test-ds-skipped", default="",  # "test/skipped_sections_test.json",
               help="test dataset.")

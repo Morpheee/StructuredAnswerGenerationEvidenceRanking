@@ -16,10 +16,11 @@ srun singularity exec /logiciels/containerCollections/CUDA11/pytorch-NGC-21-03-p
                       --checkpoints-suffix test_$1 \
                       --nb-passages 10 \
                       --suffix ./test_outputs/$1 \
-                      --load-from-checkpoint ./checkpoints/CONTINUETRAINING_articles_wo_heading_all_passage/BART_generator/version_0/checkpoints/epoch=6-step=100359.ckpt \
-                      --text-column w/o_heading_all_passage \
+                      --load-from-checkpoint ./checkpoints/sections_w_heanding_first_sentence/BART_generator/version_0/checkpoints/epoch=4-step=63985.ckpt \
+                      --text-column w_heading_first_sentence \
                       --test-corpus test/corpus_test.json \
-                      --test-ds test/articles_test.json \
+                      --test-ds ../retriever/retrieved/dpr/sections_all_first_sentence_retrieves_sections_no_skipped_first_sentence/df_test_retrieved.json \
+                      --test-prefix False
 
                     
 exit 0

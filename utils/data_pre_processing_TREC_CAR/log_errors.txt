@@ -1,119 +1,4 @@
-Wed Jun 15 08:45:21 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
-
-
-
-=== ERRORS ===
-average passage_matching_error : 0.0% missing matches
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:23 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
-
-
-
-=== ERRORS ===
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:24 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
-
-
-
-=== ERRORS ===
-average passage_matching_error : 0.0% missing matches
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:25 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
-
-
-
-=== ERRORS ===
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:26 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
-
-
-
-=== ERRORS ===
-average passage_matching_error : 0.0% missing matches
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:27 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
-
-
-
-=== ERRORS ===
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:28 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
-
-
-
-=== ERRORS ===
-average passage_matching_error : 0.0% missing matches
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:30 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
-
-
-
-=== ERRORS ===
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:32 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
-
-
-
-=== ERRORS ===
-average passage_matching_error : 0.0% missing matches
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:33 2022
-../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
-
-
-
-=== ERRORS ===
- error                   ;     count
-------------------------------------
-
-<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-Wed Jun 15 08:45:35 2022
+Fri Jun  3 18:10:07 2022
 ../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
 
 
@@ -125,7 +10,7 @@ average passage_matching_error : 0.0% missing matches
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:45:41 2022
+Fri Jun  3 18:10:12 2022
 ../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
 
 
@@ -136,7 +21,7 @@ Wed Jun 15 08:45:41 2022
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:45:48 2022
+Fri Jun  3 18:10:16 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -148,7 +33,7 @@ average passage_matching_error : 0.0% missing matches
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:45:57 2022
+Fri Jun  3 18:10:21 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -159,7 +44,168 @@ Wed Jun 15 08:45:57 2022
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:48:11 2022
+Fri Jun  3 18:10:27 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 18:10:31 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 18:10:35 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 18:26:41 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 18:38:19 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 18:54:23 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 19:05:59 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 19:22:14 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 19:34:06 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 19:50:08 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 20:01:49 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Fri Jun  3 20:18:13 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:01:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:01:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:01:37 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -171,7 +217,7 @@ average passage_matching_error : 0.0% missing matches
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:48:19 2022
+Tue Jun  7 16:01:43 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -182,7 +228,73 @@ Wed Jun 15 08:48:19 2022
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:49:02 2022
+Tue Jun  7 16:01:49 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:01:53 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:01:57 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:24 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:32 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:38 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -193,7 +305,73 @@ Wed Jun 15 08:49:02 2022
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:49:22 2022
+Tue Jun  7 16:14:44 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:48 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:14:51 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:16 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:20 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:25 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:30 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
 
 
@@ -204,8 +382,3512 @@ Wed Jun 15 08:49:22 2022
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-Wed Jun 15 08:50:24 2022
+Tue Jun  7 16:18:36 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:40 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:18:43 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:40 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:41 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:41 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:42 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:43 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:43 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:45 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:46 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:48 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:52 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:23:57 2022
 ../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:24:02 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:24:08 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:24:12 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:24:16 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:18 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:19 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:20 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:21 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:21 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:22 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:22 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:24 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:36 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:42 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:48 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:52 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:33:56 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:44 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:45 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:46 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:48 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:49 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:50 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:51 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:52 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:53 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:37:57 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:38:02 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:38:07 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:38:13 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:38:17 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:38:21 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 16:54:53 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 17:06:43 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 17:23:09 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 17:34:47 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 17:51:15 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 18:03:13 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 18:18:47 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 18:30:05 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Tue Jun  7 18:45:53 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:31 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:34 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:36 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:42 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:46 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:52 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:18:57 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:19:01 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:19:05 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:34:44 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:34 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:39 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:40 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:41 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:42 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:43 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 14:48:48 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:01:39 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+not all arguments converted during string formatting;        24
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:04:51 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:06:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:31 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:34 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:43 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:48 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:54 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:10:57 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:11:01 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:26:55 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:52 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:53 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:54 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:55 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:55 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:56 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:56 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:58 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:33:59 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:00 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:01 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:05 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:10 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:15 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:21 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:25 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:34:29 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 15:50:50 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 16:02:34 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 16:18:50 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 16:30:40 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 16:47:39 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 16:59:31 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 17:16:21 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 17:27:52 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Wed Jun  8 17:44:29 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:34 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:36 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:38 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:39 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:40 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:41 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:45 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:50 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:43:55 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:44:01 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:44:05 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:44:08 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 09:59:47 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 10:11:04 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 10:26:35 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:26:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+856715960168292647445514357786151233359632474342;         1
+212785070366774038659587856129060695518354623997;         1
+745051160913423134868795497411619409721585854083;         1
+399824037547282804427795259043025659241389351871;         1
+330031754591315683901397446695848077118571498101;         1
+1441923277055805939956067937822684235599661259441;         1
+1384615691820712912326223000101819016634990277549;         1
+1287353858643119464943484129922658859576507767753;         1
+191694610443679075178713775734718194110800442290;         1
+420132055203102495101478746635024655261293870181;         1
+103774030496827874988392196601175101896692037408;         1
+1283104396618132467322559342033198360636546064880;         1
+596141847061997799276841459945096406191786268479;         1
+1344071546841910206742659929257255934797710346948;         1
+807412545672157507576979664929498142041312055806;         1
+244565809690869114668244241251137910755969974220;         1
+1289892209817922727858832818887822715147185405403;         1
+929395825949072299002674731022605054515060507720;         1
+518604829187032989537241782498288676195269972841;         1
+170471789339537419608571154761209578556783507834;         1
+1201865663184094289271893516550814197081026666012;         1
+1033731510014960815437865079334614882928766477527;         1
+513833799094870284230751135483386671531203690022;         1
+384517441350647764323769091100781617076480287310;         1
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:37:50 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+856715960168292647445514357786151233359632474342;         1
+212785070366774038659587856129060695518354623997;         1
+745051160913423134868795497411619409721585854083;         1
+399824037547282804427795259043025659241389351871;         1
+330031754591315683901397446695848077118571498101;         1
+1441923277055805939956067937822684235599661259441;         1
+1384615691820712912326223000101819016634990277549;         1
+1287353858643119464943484129922658859576507767753;         1
+191694610443679075178713775734718194110800442290;         1
+420132055203102495101478746635024655261293870181;         1
+103774030496827874988392196601175101896692037408;         1
+1283104396618132467322559342033198360636546064880;         1
+596141847061997799276841459945096406191786268479;         1
+1344071546841910206742659929257255934797710346948;         1
+807412545672157507576979664929498142041312055806;         1
+244565809690869114668244241251137910755969974220;         1
+1289892209817922727858832818887822715147185405403;         1
+929395825949072299002674731022605054515060507720;         1
+518604829187032989537241782498288676195269972841;         1
+170471789339537419608571154761209578556783507834;         1
+1201865663184094289271893516550814197081026666012;         1
+1033731510014960815437865079334614882928766477527;         1
+513833799094870284230751135483386671531203690022;         1
+384517441350647764323769091100781617076480287310;         1
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:43:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+'856715960168292647445514357786151233359632474342';         1
+'212785070366774038659587856129060695518354623997';         1
+'745051160913423134868795497411619409721585854083';         1
+'399824037547282804427795259043025659241389351871';         1
+'330031754591315683901397446695848077118571498101';         1
+'1441923277055805939956067937822684235599661259441';         1
+'1384615691820712912326223000101819016634990277549';         1
+'1287353858643119464943484129922658859576507767753';         1
+'191694610443679075178713775734718194110800442290';         1
+'420132055203102495101478746635024655261293870181';         1
+'103774030496827874988392196601175101896692037408';         1
+'1283104396618132467322559342033198360636546064880';         1
+'596141847061997799276841459945096406191786268479';         1
+'1344071546841910206742659929257255934797710346948';         1
+'807412545672157507576979664929498142041312055806';         1
+'244565809690869114668244241251137910755969974220';         1
+'1289892209817922727858832818887822715147185405403';         1
+'929395825949072299002674731022605054515060507720';         1
+'518604829187032989537241782498288676195269972841';         1
+'170471789339537419608571154761209578556783507834';         1
+'1201865663184094289271893516550814197081026666012';         1
+'1033731510014960815437865079334614882928766477527';         1
+'513833799094870284230751135483386671531203690022';         1
+'384517441350647764323769091100781617076480287310';         1
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:44:50 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+'856715960168292647445514357786151233359632474342';         1
+'212785070366774038659587856129060695518354623997';         1
+'745051160913423134868795497411619409721585854083';         1
+'399824037547282804427795259043025659241389351871';         1
+'330031754591315683901397446695848077118571498101';         1
+'1441923277055805939956067937822684235599661259441';         1
+'1384615691820712912326223000101819016634990277549';         1
+'1287353858643119464943484129922658859576507767753';         1
+'191694610443679075178713775734718194110800442290';         1
+'420132055203102495101478746635024655261293870181';         1
+'103774030496827874988392196601175101896692037408';         1
+'1283104396618132467322559342033198360636546064880';         1
+'596141847061997799276841459945096406191786268479';         1
+'1344071546841910206742659929257255934797710346948';         1
+'807412545672157507576979664929498142041312055806';         1
+'244565809690869114668244241251137910755969974220';         1
+'1289892209817922727858832818887822715147185405403';         1
+'929395825949072299002674731022605054515060507720';         1
+'518604829187032989537241782498288676195269972841';         1
+'170471789339537419608571154761209578556783507834';         1
+'1201865663184094289271893516550814197081026666012';         1
+'1033731510014960815437865079334614882928766477527';         1
+'513833799094870284230751135483386671531203690022';         1
+'384517441350647764323769091100781617076480287310';         1
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:46:15 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+'856715960168292647445514357786151233359632474342';         1
+'212785070366774038659587856129060695518354623997';         1
+'745051160913423134868795497411619409721585854083';         1
+'399824037547282804427795259043025659241389351871';         1
+'330031754591315683901397446695848077118571498101';         1
+'1441923277055805939956067937822684235599661259441';         1
+'1384615691820712912326223000101819016634990277549';         1
+'1287353858643119464943484129922658859576507767753';         1
+'191694610443679075178713775734718194110800442290';         1
+'420132055203102495101478746635024655261293870181';         1
+'103774030496827874988392196601175101896692037408';         1
+'1283104396618132467322559342033198360636546064880';         1
+'596141847061997799276841459945096406191786268479';         1
+'1344071546841910206742659929257255934797710346948';         1
+'807412545672157507576979664929498142041312055806';         1
+'244565809690869114668244241251137910755969974220';         1
+'1289892209817922727858832818887822715147185405403';         1
+'929395825949072299002674731022605054515060507720';         1
+'518604829187032989537241782498288676195269972841';         1
+'170471789339537419608571154761209578556783507834';         1
+'1201865663184094289271893516550814197081026666012';         1
+'1033731510014960815437865079334614882928766477527';         1
+'513833799094870284230751135483386671531203690022';         1
+'384517441350647764323769091100781617076480287310';         1
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:48:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:49:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:50:09 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:00 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:01 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:03 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:03 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:04 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:05 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:05 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:07 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:08 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:09 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:10 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:14 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:19 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:24 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:30 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:34 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:56:37 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:24 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:26 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:31 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:41 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:46 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:52 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 13:57:56 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:48 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:49 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:50 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:50 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:51 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:51 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:52 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:54 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:55 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:12:56 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:13:00 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:13:04 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:13:09 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:13:15 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:13:19 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 14:58:06 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:31 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:34 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:35 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:36 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:39 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:43 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:47 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:01:54 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:02:00 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:02:05 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:02:09 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:06 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:07 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:08 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:09 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:09 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:10 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:10 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:12 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:13 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:14 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:15 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:19 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:24 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:30 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:36 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:42 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:08:45 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:11 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:12 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:13 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:13 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:14 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:15 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:15 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:16 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:18 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:19 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:20 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:24 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:28 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:34 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:40 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:44 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:11:47 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:28:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:28:47 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:30:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:30:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:25 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-0-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:27 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-1-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:28 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-2-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:29 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:30 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-3-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:31 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:32 2022
+../../../Data/benchmarkY1/benchmarkY1-train/fold-4-train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:33 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:37 2022
+../../../Data/benchmarkY1/benchmarkY1-train/train.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:41 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:47 2022
+../../../Data/benchmarkY1/benchmarkY1-test/test.pages.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:52 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:56 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/test200/train.test200.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:36:59 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 15:52:52 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold0.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 16:04:37 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 16:20:50 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold1.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 16:32:56 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 16:49:11 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold2.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 17:01:28 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 17:17:30 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold3.cbor
+
+
+
+=== ERRORS ===
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 17:29:31 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
+
+
+
+=== ERRORS ===
+average passage_matching_error : 0.0% missing matches
+ error                   ;     count
+------------------------------------
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+Thu Jun  9 17:45:57 2022
+/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold4.cbor
 
 
 

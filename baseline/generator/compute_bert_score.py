@@ -16,8 +16,8 @@ logging.basicConfig(level=logging.INFO)
 def main(df_output_path) :
     logging.info(f"Load {df_output_path}")
     df_output_test = pd.read_json(df_output_path)
-    logging.info("Computing BertScore...")
-    score = bert_score(df_output_test["generated_text"].tolist(),df_output_test["source_text"].tolist())
+    logging.info("Computing BertScore")
+    score = bert_score(df_output_test["generated_text"].tolist(),df_output_test["target_text"].tolist())
     logging.info(score)
     for k,v in score.items():
         if type(v) is list :

@@ -15,13 +15,13 @@ from tqdm import tqdm
 tqdm.pandas(miniters=100000, mininterval=60, maxinterval=600)
 
 logging.basicConfig(level=logging.INFO)
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 
 logging.info("Load all ids...")
 ids = []
-for i in tqdm(list(range(5))) :
+for i in tqdm(list(range(1))):#5))) :
     with open(f"/projets/iris/CORPUS/DOCS/TREC-CAR-Y1/train/train.fold{i}.cbor.paragraphs", "rb") as file :
         for paragraph in iter_paragraphs(file) :
             ids.append(int(paragraph.para_id))
@@ -58,6 +58,7 @@ def test_all(primes_list):
 
 step = 100000
 num_cores = multiprocessing.cpu_count()
+logging.info(f"num_cors found : {num_cores}")
 inputs = tqdm([primes[i:i+step] for i in range(0,len(primes),step)])
 logging.info(f"len inputs : {len(inputs)}")
 

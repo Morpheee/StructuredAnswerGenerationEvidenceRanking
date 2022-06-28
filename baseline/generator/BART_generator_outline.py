@@ -448,10 +448,10 @@ class Bart(pl.LightningModule):
         gen_ids = []
         df = []
         for output in outputs:
-            for input_ids_target, generated_ids, source_text, generated_text in tqdm(output, miniters=100):
+            for input_ids_target, generated_ids, target_text, generated_text in tqdm(output, miniters=100):
                 df.append({"input_ids_target": input_ids_target.tolist(),
                            "generated_ids": generated_ids.tolist(),
-                           "source_text" : source_text,
+                           "target_text" : target_text,
                            "generated_text" : generated_text})
                 self.metrics["bleu"].append(bleu(generated_ids, input_ids_target)["score"])
                 rouge_comp = rouge(generated_ids, input_ids_target)
